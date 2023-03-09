@@ -1,0 +1,45 @@
+<h1>Ecommerce - Productos Ordenados</h1>   <a href="/cart/{{cartId}}">Ver Carrito</a>
+
+<div>
+    <h2>Bienvenido al Ecommerce Amigo/a: <b>{{userName}}</b> | Identificación:  <b>{{userId}}</b></h2>
+</div>
+
+{{#if isValid}}
+
+
+{{#each docs}}
+    <div>
+        <h2>{{this.title}}</h2>
+        <ul>
+            <li>ID: {{this._id}}</li>
+            <li>Descrpción:{{this.description}}</li>
+            <li>Precio:{{this.price}}</li>
+            <li>Código:{{this.code}}</li>
+            <li>Stock:{{this.stock}}</li>
+        </ul>
+        <img src="{{this.thumbnail}}" alt="">
+    </div>
+    <div>
+        
+<form action="/products/{{this._id}}">
+    <input type="submit" value="Detalle del producto" />
+</form>
+ <form  method="post" action="/api/carts/{{this.cartId}}/products/{{this._id}}" >
+    <input type="submit" value="Agregar al carrito" />
+</form>
+        
+    </div>
+    {{/each}}
+     <div>
+        {{#if hasPrevPage}}
+        <a href="{{prevLink}}">Anterior</a>
+        {{/if}}
+        {{ page }}
+        {{#if hasNextPage}}
+        <a href="{{nextLink}}">Siguiente</a>
+        {{/if}}
+    </div>
+
+
+
+{{/if}}

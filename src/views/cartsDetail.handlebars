@@ -1,0 +1,23 @@
+<h1>Carrito n° {{cart}}</h1>
+
+{{#each productsCart}}
+    <div>
+        <h2>{{this.product.title}}</h2>
+        <h2>Cantidad {{this.quantity}}</h2>
+        <ul>
+            <li name="id">ID: {{this._id}}</li>
+            <li name="Descripcion">Descripción:{{this.product.description}}</li>
+            <li name="precio">Precio:{{this.product.price}}</li>
+            <li name="codigo">Código:{{this.product.code}}</li>
+            <li name="stock">Stock:{{this.product.stock}}</li>
+        </ul>
+        <img src="{{this.product.thumbnail}}" alt="">
+    </div>
+
+
+
+{{/each}}
+
+<form action="//{{this._id}}">
+    <input type="submit" value="Detalle del producto" />
+</form>

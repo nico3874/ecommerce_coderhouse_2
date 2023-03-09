@@ -1,0 +1,23 @@
+<h1>Detalle {{this.title}}</h1>
+
+ <div>
+        
+        <ul>
+            <li name="idProduct">ID: {{this.product._id}}</li>
+            <li>Descrpción:{{this.product.description}}</li>
+            <li>Precio:{{this.product.price}}</li>
+            <li>Código:{{this.product.code}}</li>
+            <li>Stock:{{this.product.stock}}</li>
+        </ul>
+        <img src="{{this.product.thumbnail}}" alt="">
+    </div>
+    <div>
+        <a href="http://localhost:8080/products">Regresar</a>
+    </div>
+      <form method="post" action="/api/carts/{{cid}}/products/{{this.product._id}}"> {{!-- Aca estoy conectando con Cart, creando el carrito --}}
+        
+        <input type="number" name="quantity">
+        <input type="submit" value="Agregar al carrito" />
+    </form>
+    <div>
+

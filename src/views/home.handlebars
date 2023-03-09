@@ -1,0 +1,17 @@
+
+
+{{#each products}}
+    <div>
+        <h2>{{this.title}}</h2>
+        <ul>
+            <li>ID: {{this._id}}</li>
+            <li>Descrpción:{{this.description}}</li>
+            <li>Precio:{{this.price}}</li>
+            <li>Código:{{this.code}}</li>
+            <li>Stock:{{this.stock}}</li>
+        </ul>
+        <img src="{{this.thumbnail}}" alt="">
+    </div>
+    {{/each}}
+
+
