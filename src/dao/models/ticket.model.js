@@ -5,6 +5,7 @@ const ticketCollection = 'tickets'
 const ticketSchema = mongoose.Schema({
 
     code:String,
+    detail:[],
     purchase_datetime: String,
     amount: Number,
     purchaser:String

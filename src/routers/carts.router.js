@@ -10,5 +10,5 @@ router.post('/',passportCall('jwt'), cartCreate)
 router.post('/:cid/products/:pid', addProductCart)
 router.delete('/:cid/products/:pid', deleteProductCart)
 router.delete('/:cid', deleteAllCart)
-router.get('/purchase/purchase',passportCall('jwt'), purchaseCart)
+router.post('/:cid/purchase',passportCall('jwt'), purchaseCart)
 export default router

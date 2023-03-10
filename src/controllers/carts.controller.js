@@ -1,5 +1,6 @@
 import { FactoryCart } from "../dao/factory.js"
 import usersModel from "../dao/models/users.model.js"
+import ticketModel from '../dao/models/ticket.model.js'
 import mongoose from "mongoose"
 const cartsService = new FactoryCart ()
 
@@ -43,6 +44,29 @@ export const deleteAllCart = async(req, res)=>{
 }
 
 export const purchaseCart = async(req,res)=>{
-    const data = req.body
-    console.log(data)
+    const cid = req.user.user.cartId
+    let amount = 0
+    const productList = []
+    const cart = await cartsService.purchaseCart(cid)
+    cart.products.forEach(element=>{
+        const valor =  element.product.price * element.quantity
+        amount = amount + valor
+        productList.push(element.product.title)
+    })
+
+    const ticket = {
+        code:cartsService.generateCode(),
+        detail: productList,
+        purchase_datetime: new Date(Date.now()).toLocaleString(),
+        amount:amount,
+        purchaser: req.user.user.email
+
+    }
+
+    await ticketModel.create(ticket)
+    await cartsService.deleteAllCart(cid)
+    res.render('successfulPurchase', {})
+    
+    
+    
 }

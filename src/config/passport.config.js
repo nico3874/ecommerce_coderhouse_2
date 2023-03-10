@@ -7,6 +7,7 @@ import jwt from 'passport-jwt'
 import  PRIVATE_KEY  from './config.js'
 import { generateToken } from '../utils.js'
 
+
 // Registro y Login con estrategia local
 
 const LocalStrategy = local.Strategy
@@ -21,7 +22,7 @@ passport.use('register', new LocalStrategy({
     usernameField: 'email'
 },
 async(req, username, password, done)=>{
-    const {name, lastName, email, age} = req.body
+    const {name, lastName, email, age,cartId} = req.body
     
 
     try {

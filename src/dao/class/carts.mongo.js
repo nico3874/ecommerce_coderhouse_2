@@ -78,7 +78,19 @@ export default class Cart{
         return {message:'Carrito vacío'}
     }
 
-    purchaseCart = async(data)=>{
-        console.log(data)
+    generateCode = ()=>{
+        let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        let code = "";
+        for (var i = 0; i < 6; i++) {
+          var randomIndex = Math.floor(Math.random() * characters.length);
+          code += characters.charAt(randomIndex);
+        }
+        return code;
+      }
+    
+
+    purchaseCart = async(cid)=>{
+        const cart = await cartsModel.find({_id:new mongoose.Types.ObjectId(cid)})
+        return cart[0]
     }
 }

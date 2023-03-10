@@ -19,19 +19,7 @@ router.get('/', async (req, res)=>{
 //Mostrar productos con su paginación
 
 router.get('/products',passportCall('jwt'), async(req,res)=>{
-    //Prueba----Borrar
-    const cart = await cartsModel.findOne({_id:new mongoose.Types.ObjectId('6408e899b7ef6291b0d1da65')})
-    const productsDetails = []
     
-    cart.products.forEach (async(element) => {
-        
-       
-        const product = await productsModel.findOne({_id:new mongoose.Types.ObjectId(element.product)})
-        productsDetails.push(product)
-    });
-    console.log(productsDetails)
-
-    //----------------
     const userCart = req.user.user.cartId
     const user = new UserDTO(req.user.user)
     
@@ -114,7 +102,6 @@ router.get('/chat',passportCall('jwt'),roleUser, (req, res)=>{
 router.get('/cart/:cid',passportCall('jwt'), async(req, res)=>{
     const cartParam = req.user.user.cartId
     const cart = await cartsModel.find({_id:new mongoose.Types.ObjectId(cartParam)}).lean() //Utilizar lean() para que handlebars reciba un objeto tipo json
-  
     res.render('cartsDetail', {productsCart:cart[0].products,quantity:cart[0].products.quantity, cart:cartParam })
 
 })

@@ -18,6 +18,6 @@
 
 {{/each}}
 
-<form action="//{{this._id}}">
-    <input type="submit" value="Detalle del producto" />
+<form action="/api/carts/{{cart}}/purchase" method="post">
+    <input type="submit" value="Finalizar compra" />
 </form>
