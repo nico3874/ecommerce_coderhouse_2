@@ -108,7 +108,7 @@ io.on ('connection', socket =>{
     socket.on('message',async (data)=>{
         
         messages.push(data)
-        console.log(data)
+        
         await chatModel.updateOne({user:data.user}, {$set:{message:messages}})
 
         io.emit('messageLogs', messages)
@@ -117,6 +117,8 @@ io.on ('connection', socket =>{
     
     
 })
+
+
 
 
 

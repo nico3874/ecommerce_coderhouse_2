@@ -25,9 +25,21 @@ export default class Cart{
         }
     }
 
-    addProductCart = async(cid, pid)=>{
+    addProductCart = async(cid, pid, quantity)=>{
+        const cart = await cartsModel.findOne({_id:new mongoose.Types.ObjectId(cid)})
+        cart.products.forEach(element=>{
+            if (element.product ==pid){
+                
+                let index = cart.products.findIndex(i =>i.product==element.product )
+                console.log(index)
+                cart.products.splice(index, 1)
+            }
+        })
+        cart.products.push({product:pid, quantity:quantity})
+        cart.save()
+        return cart
         
-        try {
+        /* try {
         const newCartProduct = []
 
         const cart = await cartsModel.findById(cid)
@@ -49,14 +61,14 @@ export default class Cart{
 
         countProduct == 0 && newCartProduct.push({product:pid, quantity:1})
 
-        console.log(newCartProduct)
+       
         
         await cartsModel.updateOne({_id:new mongoose.Types.ObjectId(cid)}, {$set:{products: newCartProduct}})
         return {status:'Success',message:'Carrito actualizado'}
 
         } catch (error) {
             
-        }
+        } */
     }
 
     deleteProductCart = async(cid, pid)=>{

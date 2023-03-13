@@ -3,7 +3,7 @@
  <div>
         
         <ul>
-            <li name="idProduct">ID: {{this.product._id}}</li>
+            <li >ID: {{this.product._id}}</li>
             <li>Descrpción:{{this.product.description}}</li>
             <li>Precio:{{this.product.price}}</li>
             <li>Código:{{this.product.code}}</li>
@@ -17,6 +17,8 @@
       <form method="post" action="/api/carts/{{cid}}/products/{{this.product._id}}"> {{!-- Aca estoy conectando con Cart, creando el carrito --}}
         
         <input type="number" name="quantity">
+        <input type="text" id="_id" style="display:none;", name={{this.product._id}}>
+
         <input type="submit" value="Agregar al carrito" />
     </form>
     <div>
