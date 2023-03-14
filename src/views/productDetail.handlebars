@@ -16,7 +16,7 @@
     </div>
       <form method="post" action="/api/carts/{{cid}}/products/{{this.product._id}}"> {{!-- Aca estoy conectando con Cart, creando el carrito --}}
         
-        <input type="number" name="quantity">
+        <input type="number" name="quantity" min="1" value="1">
         <input type="text" id="_id" style="display:none;", name={{this.product._id}}>
 
         <input type="submit" value="Agregar al carrito" />

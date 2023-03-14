@@ -20,6 +20,7 @@ export function roleAdmin (req, res, next){
 export function roleUser (req, res, next){
     
     if(req.user.user.role =='user') return next()
+    
     /* res.send('Su perfil no le permite acceder') */
 }
 

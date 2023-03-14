@@ -25,6 +25,8 @@
     <input type="submit" value="Detalle del producto" />
 </form>
  <form  method="post" action="/api/carts/{{this.cartId}}/products/{{this._id}}" >
+    <input type="number" name="quantity" min="1" value="1">
+    <input type="text" id="_id" style="display:none;", name={{this._id}}>
     <input type="submit" value="Agregar al carrito" />
 </form>
         
