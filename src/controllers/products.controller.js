@@ -1,6 +1,10 @@
 
 import { FactoryProducts } from "../dao/factory.js";
-import { passportCall } from "../utils.js";
+import { generateProductMock } from "../dao/class/productsMock.js";
+
+import { generateProductsErrorInfo } from "../customErrors/errors/infoError.js";
+import { codeError } from "../customErrors/errors/codeErrors.js";
+import CustomError from "../customErrors/errors/custom_error.js";
 
 
 const productsService = new FactoryProducts()
@@ -20,13 +24,37 @@ export const getProductsById = async(req, res)=>{
 }
 
 
-export const addProducts = async(req, res)=>{
+export const addProducts = async(req, res, done)=>{
+    try {
+        const {title, description, price, code, stock, category} = req.body
 
-    const product = req.body
+        if(title && description && price && code && stock && category ){
+            const product = {title, description, price, code, stock, category}
+            const newProduct = await productsService.addProducts(product)
+            return res.status(200).send({status:'succes', mesage:'Producto cargado correctamente', payload:newProduct})      
+       
+    }
+
+    error = CustomError.createError ({
+        name: "User creation error",
+        cause: generateProductsErrorInfo({title, description, price, code, stock, category}),
+        message: "Error trying to create user",
+        code: codeError.INVALID_TYPES_ERROR
+        
+    }) 
+    } catch (error) {
+        return done(error)
+    }
+        
+        
+    }
     
-    const newProduct = await productsService.addProducts(product)
-    return res.status(200).send({status:'succes', mesage:'Producto cargado correctamente', payload:newProduct})
-}
+    
+    
+   
+
+    
+
 
 export const updateProducts = async ( req, res)=>{
 
@@ -44,6 +72,10 @@ export const deleteProduct = async (req, res)=>{
     const result = await productsService.deleteProduct(idQuery)
     return res.send(result)
 
+}
+
+export const generateProductService = async(req, res)=>{
+    res.send(generateProductMock())
 }
    
         

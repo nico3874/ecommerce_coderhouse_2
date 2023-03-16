@@ -17,12 +17,15 @@ import passport from 'passport'
 import cookieParser from 'cookie-parser'
 import URI_MONGO from './config/config.js'
 import chatModel from './dao/models/chat.model.js'
+import errorHandler from './middlewares/errors/middlewareError.js'
 
 
 const app = express()
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(cookieParser())
+
+
 
 app.use(express.static(__dirname + '/public'))
 
@@ -50,6 +53,7 @@ initPass()
 app.use(passport.initialize())
 app.use(passport.session())
 
+app.use(errorHandler)
 
 
 app.engine('handlebars', handlebars.engine())
@@ -64,6 +68,9 @@ app.use('/api/products', productsRouter)
 app.use('/api/carts', cartsRouter)
 app.use('/', viewsRouter)
 app.use('/sessions', sessionsRouter)
+
+app.use(errorHandler)
+
 
 
 const httpServer = new serverHtttp(app)

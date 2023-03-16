@@ -6,7 +6,9 @@ import GitHubStrategy from 'passport-github2'
 import jwt from 'passport-jwt'
 import  PRIVATE_KEY  from './config.js'
 import { generateToken } from '../utils.js'
-
+import CustomError from '../customErrors/errors/custom_error.js'
+import { generateUserErrorInfo } from '../customErrors/errors/infoError.js'
+import { codeError } from '../customErrors/errors/codeErrors.js'
 
 // Registro y Login con estrategia local
 
@@ -22,27 +24,39 @@ passport.use('register', new LocalStrategy({
     usernameField: 'email'
 },
 async(req, username, password, done)=>{
-    const {name, lastName, email, age,cartId} = req.body
-    
 
     try {
-        const user = await usersModel.findOne({email:username})
-        if(user){
-            console.log('Usuario ya existe')
-            return done(null, false)}
+        const {name, lastName, email, age,cartId} = req.body
+        
+        if (name && lastName && email && age){
+            const user = await usersModel.findOne({email:username})
+            if(user){
+                console.log('Usuario ya existe')
+                return done(null, false)}
 
-        const newUser = {
-            name,
-            lastName,
-            email,
-            age,
-            password: createHash(password)
+            const newUser = {
+                name,
+                lastName,
+                email,
+                age,
+                password: createHash(password)
+            }
+            const result = await usersModel.create(newUser)
+            return (done(null, result))
+        
         }
-        const result = await usersModel.create(newUser)
-        return (done(null, result))
+        
+    
+        error=   CustomError.createError ({
+            name: "User creation error",
+            cause: generateUserErrorInfo({name, lastName, email, age}),
+            message: "Error trying to create user",
+            code: codeError.INVALID_TYPES_ERROR
+            
+        }) 
         
     } catch (error) {
-        return done('Error en el registro' + error)
+        return done(error)
     }
 }))
 
