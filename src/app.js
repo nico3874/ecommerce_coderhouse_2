@@ -5,6 +5,7 @@ import productsRouter from './routers/products.router.js'
 import cartsRouter from   './routers/carts.router.js'
 import viewsRouter from './routers/views.router.js'
 import sessionsRouter from './routers/sessions.router.js'
+import loggerRouter from './routers/logger.router.js'
 import handlebars from 'express-handlebars'
 import __dirname from './utils.js'
 import { Server } from 'socket.io'
@@ -18,9 +19,11 @@ import cookieParser from 'cookie-parser'
 import URI_MONGO from './config/config.js'
 import chatModel from './dao/models/chat.model.js'
 import errorHandler from './middlewares/errors/middlewareError.js'
+import { addLogger } from './utils.js'
 
 
 const app = express()
+app.use(addLogger)
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(cookieParser())
@@ -53,7 +56,7 @@ initPass()
 app.use(passport.initialize())
 app.use(passport.session())
 
-app.use(errorHandler)
+
 
 
 app.engine('handlebars', handlebars.engine())
@@ -68,6 +71,7 @@ app.use('/api/products', productsRouter)
 app.use('/api/carts', cartsRouter)
 app.use('/', viewsRouter)
 app.use('/sessions', sessionsRouter)
+app.use('/logger', loggerRouter)
 
 app.use(errorHandler)
 

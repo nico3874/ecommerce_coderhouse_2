@@ -31,7 +31,7 @@ export default class Cart{
             if (element.product ==pid){
                 
                 let index = cart.products.findIndex(i =>i.product==element.product )
-                console.log(index)
+                
                 cart.products.splice(index, 1)
             }
         })

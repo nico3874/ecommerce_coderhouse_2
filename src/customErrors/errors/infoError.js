@@ -9,7 +9,7 @@ export const generateUserErrorInfo = user => {
 }
 
 export const generateConectErrorInfo = dataBase=>{
-    return `No se puede conectar a la DB ${dataBase.URI} no válida`
+    return `No se puede conectar a la DB  no válida`
 }
 
 

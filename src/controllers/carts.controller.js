@@ -33,7 +33,7 @@ export const addProductCart = async(req, res)=>{
     const quantity = req.body.quantity
     
     const result = await cartsService.addProductCart(cid, pid, quantity)
-    
+    req.logger.debug(result)
     res.redirect('/products')
 }
 

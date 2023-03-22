@@ -61,7 +61,7 @@ export const updateProducts = async ( req, res)=>{
     const idQuery = req.params.id
     const productUpdate = req.body
     const result = await productsService.updateProduct(idQuery, productUpdate)
-    console.log(result)
+    req.logger.info(result)
     return res.send(result)
         
     }

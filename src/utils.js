@@ -1,10 +1,16 @@
 import {fileURLToPath } from 'url'
-import {dirname} from 'path'
+import {dirname, format} from 'path'
 import bycrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import PRIVATE_KEY from './config/config.js'
+import winston from 'winston'
+
+import TYPELOGGER from './config/config.js'
+
 
 import passport from 'passport'
+import { config } from 'dotenv'
+import { ALL } from 'dns'
 ///Esto es para las rutas relativas
 
 const __filename = fileURLToPath(import.meta.url)
@@ -70,3 +76,66 @@ export const cookieExtractor = req => {
     
     return token
 }
+
+//Logger
+
+
+
+const customLevelsOptions = {
+    levels: {
+        fatal: 0,
+        error: 1,
+        warning: 2,
+        info: 3,
+        debug: 4
+    },
+    
+}
+
+
+
+const loggerDev = winston.createLogger({
+    levels: customLevelsOptions.levels,
+    transports: [
+        new winston.transports.Console({
+            level: "debug",
+            format: winston.format.combine(
+                winston.format.colorize({all:true}),
+                winston.format.simple()
+            )
+            
+        })
+    ]
+
+})
+    
+
+const loggerProd = winston.createLogger({
+    levels: customLevelsOptions.levels,
+    transports: [
+        new winston.transports.File({
+            filename: './errors.log',
+            level: 'info',
+            format: winston.format.combine(
+                
+                winston.format.simple()
+                
+            )
+        })
+    ]
+        
+    })       
+        
+    
+
+
+export const addLogger = (req, res, next) => {
+    if (TYPELOGGER.TYPELOGGER == 'loggerProd') req.logger = loggerProd
+    if (TYPELOGGER.TYPELOGGER == 'loggerDev') req.logger = loggerDev
+    
+    
+    req.logger.info(`${req.method} en ${req.url} - ${new Date().toLocaleTimeString()}`)
+    
+    next()
+}
+

@@ -19,7 +19,8 @@ dotenv.config({
 export default{
     URI_MONGO : process.env.URI_MONGO,
     persistence : process.env.PERSISTENCE,
-    PRIVATE_KEY : process.env.PRIVATE_KEY
+    PRIVATE_KEY : process.env.PRIVATE_KEY,
+    TYPELOGGER : process.env.TYPELOGGER
 }
 
 

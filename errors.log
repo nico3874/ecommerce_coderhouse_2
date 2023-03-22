@@ -1,0 +1,44 @@
+[32minfo[39m: POST en /sessions/create - 21:52:35
+[31mwarning[39m: Uno o mas propiedades estan incompletos o son invalidos.
+    Lista de propiedades obligatorios:
+        * first_name: Necesita ser un string, recibio undefined
+        * last_name: Necesita ser un string, recibio undefined
+        * email: Necesita ser un string, recibio nico@nico
+        * password: Necesita ser un string, recibio undefined
+    
+info: POST en /sessions/create - 21:53:02
+warning: Uno o mas propiedades estan incompletos o son invalidos.
+    Lista de propiedades obligatorios:
+        * first_name: Necesita ser un string, recibio undefined
+        * last_name: Necesita ser un string, recibio undefined
+        * email: Necesita ser un string, recibio nico@nico
+        * password: Necesita ser un string, recibio undefined
+    
+[32minfo[39m: [32mPOST en /sessions/create - 22:00:20[39m
+[31mwarning[39m: [31mUno o mas propiedades estan incompletos o son invalidos.[39m
+[31m    Lista de propiedades obligatorios:[39m
+[31m        * first_name: Necesita ser un string, recibio undefined[39m
+[31m        * last_name: Necesita ser un string, recibio undefined[39m
+[31m        * email: Necesita ser un string, recibio nico@nico[39m
+[31m        * password: Necesita ser un string, recibio undefined[39m
+[31m    [39m
+info: POST en /sessions/create - 22:10:46
+warning: Uno o mas propiedades estan incompletos o son invalidos.
+    Lista de propiedades obligatorios:
+        * first_name: Necesita ser un string, recibio undefined
+        * last_name: Necesita ser un string, recibio undefined
+        * email: Necesita ser un string, recibio nico@nico
+        * password: Necesita ser un string, recibio undefined
+    
+info: GET en / - 17:37:55
+info: GET en /favicon.ico - 17:37:56
+info: GET en / - 18:03:03
+info: GET en /logger - 20:03:20
+fatal: FATAL ERROR
+error: No podemos conectar a la base de datos
+warning: Cuidado, datos vulnerables
+info: Se conectó a la ruta solicitada
+info: GET en /sessions/register - 20:11:06
+info: POST en /sessions/create - 20:11:20
+warning: Usuario ya existe
+info: GET en /sessions/failedRegister - 20:11:20

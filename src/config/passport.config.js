@@ -31,7 +31,7 @@ async(req, username, password, done)=>{
         if (name && lastName && email && age){
             const user = await usersModel.findOne({email:username})
             if(user){
-                console.log('Usuario ya existe')
+                req.logger.warning('Usuario ya existe')
                 return done(null, false)}
 
             const newUser = {
