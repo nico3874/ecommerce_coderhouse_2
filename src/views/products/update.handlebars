@@ -1,0 +1,47 @@
+
+<form action="/updateProduct" method="post">
+    <h2>Ingresa el ID del producto a modificar</h2>
+    <div class="mb-3">
+      <label for="title" class="form-label">ID:</label>
+      <input type="text" class="form-control" id="id" name="id" value={{this.product._id}} >
+      
+      <button id="buttonProductUpdate">Consultar</button>
+    </div>
+</form>    
+<form  id="form-update" action="/deleteProduct">
+    <input type="hidden" name="id"  value={{this.product._id}} >
+    <div class="mb-3">
+      <label for="title" class="form-label">Title:</label>
+      <input type="text" class="form-control" id="title" name="title"  value={{this.product.title}}>
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description:</label>
+      <input type="text" class="form-control" id="description" name="description" value={{this.product.description}} >
+    </div>
+    <div class="mb-3">
+      <label for="price" class="form-label">Price:</label>
+      <input type="number" class="form-control" id="price" name="price" value={{this.product.price}} >
+    </div>
+    <div class="mb-3">
+      <label for="thumbnail" class="form-label">Thumbnail:</label>
+      <input type="text" class="form-control" id="thumbnail" name="thumbnail" value={{this.product.thumbnail}} >
+    </div>
+    <div class="mb-3">
+      <label for="code" class="form-label">Code:</label>
+      <input type="text" class="form-control" id="code" name="code" value={{this.product.code}} >
+    </div>
+    <div class="mb-3">
+      <label for="category" class="form-label">Category:</label>
+      <input type="text" class="form-control" id="category" name="category" value={{this.product.category}} >
+    </div>
+    <div class="mb-3">
+      <label for="stock" class="form-label">Stock:</label>
+      <input type="number" class="form-control" id="stock" name="stock" value={{this.product.stock}} >
+    </div>
+    
+    <button type="submit" class="btn btn-primary" id="btnUpdateProduct">Actualizar</button>
+</form>
+<br>
+<a class="mt-5" href="/admin"><button type="submit" class="btn btn-primary">Menú Admin</button> </a>
+
+<script src="/js/updateProduct.js"></script>

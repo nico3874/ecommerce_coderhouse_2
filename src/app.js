@@ -20,6 +20,8 @@ import URI_MONGO from './config/config.js'
 import chatModel from './dao/models/chat.model.js'
 import errorHandler from './middlewares/errors/middlewareError.js'
 import { addLogger } from './utils.js'
+import cors from 'cors'
+
 
 
 const app = express()
@@ -27,7 +29,7 @@ app.use(addLogger)
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(cookieParser())
-
+app.use(cors())
 
 
 app.use(express.static(__dirname + '/public'))
@@ -101,6 +103,8 @@ io.on('connection', async (socket) =>{
     io.sockets.emit('productos', listProducts)
    
 })
+
+
 
 //Chat desde el lado del servidor
 

@@ -23,6 +23,7 @@ export const cartCreate = async (req, res)=>{
 export const getCart = async (req, res)=>{
     const id = req.params.id
     const result = await cartsService.getCart(id)
+    req.logger.info(result)
     res.send(result)
 }
 
@@ -41,18 +42,20 @@ export const deleteProductCart = async(req,res)=>{
     const cid = req.params.cid
     const pid = req.params.pid
     const result = await cartsService.deleteProductCart(cid, pid)
+    req.logger.info(result)
     res.send(result)
 }
 
 export const deleteAllCart = async(req, res)=>{
     const cid = req.params.cid
     const result = await cartsService.deleteAllCart(cid)
+    req.logger.info(result)
     res.send(result)
 }
 
 export const purchaseCart = async(req,res)=>{
-    
-    const cid = req.user.user.cartId
+    try {
+        const cid = req.user.user.cartId
     let amount = 0
     const productList = []
     const cart = await cartsService.purchaseCart(cid)
@@ -84,6 +87,11 @@ export const purchaseCart = async(req,res)=>{
     const newTicket=  await ticketModel.create(ticket)
     await cartsService.deleteAllCart(cid)
     res.render('successfulPurchase', newTicket)
+    req.logger.info(`${newTicket} creado con exito`)
+    } catch (error) {
+        req.logger.warning('La compra no pudo finalizarse')
+    }
+    
     
     
     

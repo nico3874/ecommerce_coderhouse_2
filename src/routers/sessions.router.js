@@ -33,6 +33,8 @@ export function auth(req, res, next){
 //Esto crea al usuasrio en Mongo sin passport
 
 router.get('/register', (req, res)=>{
+    
+    
     res.render('sessions/register', {})
 })
 
@@ -60,7 +62,7 @@ router.get('/login', (req, res)=>{
     res.render('sessions/login', {})
 })
 
-/
+
 
 
 //Login con passport y estrategia local

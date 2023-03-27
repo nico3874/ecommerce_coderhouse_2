@@ -26,19 +26,20 @@ export const getProductsById = async(req, res)=>{
 
 export const addProducts = async(req, res, done)=>{
     try {
+        
         const {title, description, price, code, stock, category} = req.body
 
         if(title && description && price && code && stock && category ){
-            const product = {title, description, price, code, stock, category}
+            const product = req.body
             const newProduct = await productsService.addProducts(product)
             return res.status(200).send({status:'succes', mesage:'Producto cargado correctamente', payload:newProduct})      
        
     }
 
     error = CustomError.createError ({
-        name: "User creation error",
+        name: "Product creation error",
         cause: generateProductsErrorInfo({title, description, price, code, stock, category}),
-        message: "Error trying to create user",
+        message: "Error trying to create Product",
         code: codeError.INVALID_TYPES_ERROR
         
     }) 
@@ -50,19 +51,30 @@ export const addProducts = async(req, res, done)=>{
     }
     
     
+
+export const updateProducts = async ( req, res, done)=>{
+
+    try {
+        const {title, description, price, code, stock, category} = req.body
+        if(title && description && price && code && stock && category ){
+        const idQuery = req.params.id
+        const productUpdate = req.body
+        const result = await productsService.updateProduct(idQuery, productUpdate)
+        req.logger.info(result)
+        return res.send(result)
+    }
+    error = CustomError.createError ({
+        name: "Product update error",
+        cause: generateProductsErrorInfo({title, description, price, code, stock, category}),
+        message: "Error trying to update Product",
+        code: codeError.INVALID_TYPES_ERROR})
+
+        
+    } catch (error) {
+        return done(error)
+    }
     
-   
-
     
-
-
-export const updateProducts = async ( req, res)=>{
-
-    const idQuery = req.params.id
-    const productUpdate = req.body
-    const result = await productsService.updateProduct(idQuery, productUpdate)
-    req.logger.info(result)
-    return res.send(result)
         
     }
 
@@ -70,6 +82,7 @@ export const updateProducts = async ( req, res)=>{
 export const deleteProduct = async (req, res)=>{
     const idQuery = req.params.id
     const result = await productsService.deleteProduct(idQuery)
+    req.logger.info(result)
     return res.send(result)
 
 }

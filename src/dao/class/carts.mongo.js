@@ -21,7 +21,8 @@ export default class Cart{
             const cart = await cartsModel.findOne({_id:new mongoose.Types.ObjectId(id)})
             return {status:'Success', message: `Carrito encontrado`, cart}
         } catch (error) {
-            return {error:'Carrito no existe'}
+            error = 'Carrito no existe'
+            return  error
         }
     }
 

@@ -4,13 +4,16 @@ import productsModel from "../dao/models/products.model.js";
 import cartsModel from "../dao/models/carts.model.js";
 import { passportCall } from "../utils.js";
 import UserDTO from "../dao/DTO/users.dto.js";
-import { roleUser } from "./sessions.router.js";
+import { roleAdmin, roleUser } from "./sessions.router.js";
+
 
 
 const router = Router()
 
+
+
 router.get('/', async (req, res)=>{
-    
+
     const products = await productsModel.find().lean().exec()
     res.render('home', {products})
     
@@ -65,12 +68,42 @@ router.get('/github/products', async(req,res)=>{
 
 })
 
+router.get('/admin', passportCall('jwt'), roleAdmin, async(req, res)=>{
+    res.render('products/adminProduct')
+})
 
+router.get('/updateProduct', async(req, res)=>{
+    res.render('products/update')
+})
+
+
+
+router.post('/updateProduct', async(req, res)=>{
+    const pid = req.body.id
+    
+    const product = await productsModel.findOne({_id:new mongoose.Types.ObjectId(pid)}).lean().exec()
+    res.render('products/update', {product:product})
+
+})
+
+router.get('/deleteProduct', async(req, res)=>{
+    res.render('products/delete')
+})
+
+router.post('/deleteProduct', async(req, res)=>{
+    const pid = req.body.id
+    
+    const product = await productsModel.findOne({_id:new mongoose.Types.ObjectId(pid)}).lean().exec()
+    res.render('products/delete', {product:product})
+
+})
 
 
 //Mostramos un producto específico 
 
 router.get('/products/:pid',passportCall('jwt'), async(req, res)=>{
+    
+   
     const cid = req.user.user.cartId
     
     const productParam = req.params.pid

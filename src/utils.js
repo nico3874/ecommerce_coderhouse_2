@@ -134,6 +134,7 @@ export const addLogger = (req, res, next) => {
     if (TYPELOGGER.TYPELOGGER == 'loggerDev') req.logger = loggerDev
     
     
+    
     req.logger.info(`${req.method} en ${req.url} - ${new Date().toLocaleTimeString()}`)
     
     next()

@@ -9,7 +9,11 @@ import { codeError } from "../customErrors/errors/codeErrors.js";
 export let FactoryProducts;
 export let FactoryCart
 
+
+
+
 switch (config.persistence) {
+    
     case 'MONGO':
             mongoose.set('strictQuery', false)
             try {
@@ -19,6 +23,7 @@ switch (config.persistence) {
                 useUnifiedTopology:true
                 
                 })
+                
             } catch (error) {
                 error = CustomError.createError ({
                     name: "Connection failed",
