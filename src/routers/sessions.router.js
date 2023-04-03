@@ -3,6 +3,10 @@ import passport from "passport";
 import mongoose from "mongoose";
 import cartsModel from "../dao/models/carts.model.js";
 import usersModel from "../dao/models/users.model.js";
+import { createHash } from "../utils.js";
+import { compareSync } from "bcrypt";
+import nodemailer from 'nodemailer'
+
 
 
 
@@ -12,14 +16,16 @@ const router = Router()
 //Middleware de autenticación
 export function roleAdmin (req, res, next){
     
-    if(req.user.user.role ==='admin') next()
+    if(req.user.user.role ==='admin' || req.user.user.role === 'premium') return next()
+    res.send({error:'Credenciales Inválidas'})
+
     /* res.send('Su perfil no le permite acceder')  */
     /* Encadenar metodos send, render, etc en cadenas de validación de middleware puede generer el error Cannot set headers after they are sent to the client */
 }
 
 export function roleUser (req, res, next){
     
-    if(req.user.user.role =='user') return next()
+    if(req.user.user.role =='user' || req.user.user.role == 'premium') return next()
     
     /* res.send('Su perfil no le permite acceder') */
 }
@@ -100,6 +106,74 @@ router.get('/logout', (req, res)=>{
     req.session.destroy(err=>{console.log(err)})
     res.clearCookie('userToken').redirect('/sessions/login')
 })
+
+
+//Recuperar Password
+
+const transport = nodemailer.createTransport({
+    service:'gmail',
+    port: 587,
+    secure: false,
+    
+    auth: {
+        user: 'nicodoffo2015@gmail.com',
+        pass: 'ifozlvirqsicyuyh'
+    },
+    tls: {
+        rejectUnauthorized: false
+    }
+})
+
+
+
+router.get('/recoverPassForm', async(req, res)=>{
+    
+    res.render('sessions/recoverPassForm', )
+})
+
+router.post('/emailSend', async(req, res)=>{
+    const {user} = req.body
+    const time = Date.now()
+
+    const result = await transport.sendMail({
+        from:'nicodoffo2015@gmail.com',
+        to: `${user}`,
+        subject: 'Reestablece tu contraseña',
+        html: 
+           ` <div> <form action="http://localhost:8080/sessions/emailRecover" method="post">
+           <input type="hidden" value=${user} name="user">
+           <input type="hidden" value=${time} name="time">
+           <input type="submit" value="Reestablecer">
+       
+       </form>
+        </div>
+           `
+    })
+    return res.send('Enlace enviado, revisa tu correo...')
+})
+
+router.post('/emailRecover', async(req, res)=>{
+    
+    const {user, time} = req.body
+    if((Date.now()-time)>3600000) return res.render('sessions/expiredLink');
+    
+    res.render('sessions/newPass', {user:user})
+})
+
+router.post('/recoverPass/:user', async(req, res)=>{
+
+    const user = req.params.user
+    const {newPass, time} = req.body
+    
+    const userFind =  await usersModel.findOne({email:user})
+    if (compareSync(newPass, userFind.password))return res.send('No se puede ponner la misma password')
+    userFind.password = createHash(newPass)
+    userFind.save()
+    res.send('Password reestablecisa.')
+
+})
+
+
 
 
 

@@ -12,6 +12,7 @@ const router = Router()
 
 
 
+
 router.get('/', async (req, res)=>{
 
     const products = await productsModel.find().lean().exec()

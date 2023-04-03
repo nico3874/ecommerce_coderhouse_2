@@ -1,0 +1,19 @@
+<h2>Reestablece tu contraseña</h2>
+
+<form class="mt-5" method="post" action="/sessions/recoverPass/{{this.user}}">
+  <!-- Email input -->
+  <div class="form-outline mb-4">
+    <input type="hidden" value="{{this.time}}" name="time">
+    <input type="password" id="form2Example1" class="form-control" name="newPass" />
+    <label class="form-label" for="form2Example1">Email address</label>
+  </div>
+
+  
+
+ 
+
+  <!-- Submit button -->
+  <button type="submit" class="form-control btn btn-primary ">Reestablecer</button>
+  
+
+</form>

@@ -25,12 +25,14 @@ export const getProductsById = async(req, res)=>{
 
 
 export const addProducts = async(req, res, done)=>{
+    
     try {
         
         const {title, description, price, code, stock, category} = req.body
 
         if(title && description && price && code && stock && category ){
             const product = req.body
+            if(req.user.user.role == 'premium') product.owner = req.user.user.email
             const newProduct = await productsService.addProducts(product)
             return res.status(200).send({status:'succes', mesage:'Producto cargado correctamente', payload:newProduct})      
        
@@ -81,9 +83,16 @@ export const updateProducts = async ( req, res, done)=>{
 
 export const deleteProduct = async (req, res)=>{
     const idQuery = req.params.id
+    const product = await productsService.getProductsById(idQuery)
+    if (req.user.user.role == 'premium' && product.owner == req.user.user.email ||req.user.user.role == 'admin'){
     const result = await productsService.deleteProduct(idQuery)
+    console.log('Producto eliminado!!');
     req.logger.info(result)
-    return res.send(result)
+    return res.send(result)}
+    else{
+        console.log('No puedes elimimar un producto que no creaste sino eres administrador');
+        res.send('No puedes elimimar un producto que no creaste sino eres administrador')
+    }
 
 }
 

@@ -24,7 +24,7 @@ passport.use('register', new LocalStrategy({
     usernameField: 'email'
 },
 async(req, username, password, done)=>{
-
+    
     try {
         const {name, lastName, email, age,cartId} = req.body
         
@@ -41,6 +41,7 @@ async(req, username, password, done)=>{
                 age,
                 password: createHash(password)
             }
+            if(req.body.premium) newUser.role = 'premium'
             const result = await usersModel.create(newUser)
             return (done(null, result))
         

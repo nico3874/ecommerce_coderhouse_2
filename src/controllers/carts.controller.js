@@ -1,11 +1,11 @@
-import { FactoryCart} from "../dao/factory.js"
+import { FactoryCart, FactoryProducts} from "../dao/factory.js"
 import usersModel from "../dao/models/users.model.js"
 import ticketModel from '../dao/models/ticket.model.js'
 import mongoose from "mongoose"
 import productsModel from "../dao/models/products.model.js"
 
 const cartsService = new FactoryCart ()
-
+const productsService = new FactoryProducts()
 
 
 export const cartCreate = async (req, res)=>{
@@ -32,7 +32,8 @@ export const addProductCart = async(req, res)=>{
     const cid = req.params.cid
     const pid = req.params.pid
     const quantity = req.body.quantity
-    
+    const product = await productsService.getProductsById(pid)
+    if(req.user.user.email == product.owner) return res.send({error:'No puedes comprar un prodcuto que tu creaste'})
     const result = await cartsService.addProductCart(cid, pid, quantity)
     req.logger.debug(result)
     res.redirect('/products')

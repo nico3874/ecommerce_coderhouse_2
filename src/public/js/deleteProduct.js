@@ -23,7 +23,8 @@ btnDelete.addEventListener('click', (event)=>{
       
     }
   }).then(function(response) {
-    console.log("Formulario enviado con éxito");
+
+    console.log("Formulario enviado con éxito" + JSON.stringify(response));
     alert('El producto se eliminó correctamente!!')
     
   });

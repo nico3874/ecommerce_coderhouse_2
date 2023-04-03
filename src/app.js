@@ -6,6 +6,7 @@ import cartsRouter from   './routers/carts.router.js'
 import viewsRouter from './routers/views.router.js'
 import sessionsRouter from './routers/sessions.router.js'
 import loggerRouter from './routers/logger.router.js'
+import userRouter from './routers/user.router.js'
 import handlebars from 'express-handlebars'
 import __dirname from './utils.js'
 import { Server } from 'socket.io'
@@ -74,6 +75,7 @@ app.use('/api/carts', cartsRouter)
 app.use('/', viewsRouter)
 app.use('/sessions', sessionsRouter)
 app.use('/logger', loggerRouter)
+app.use('/api/user', userRouter)
 
 app.use(errorHandler)
 
