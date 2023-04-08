@@ -22,6 +22,8 @@ import chatModel from './dao/models/chat.model.js'
 import errorHandler from './middlewares/errors/middlewareError.js'
 import { addLogger } from './utils.js'
 import cors from 'cors'
+import swaggerJSDoc from 'swagger-jsdoc';
+import swaggerUiExpress from 'swagger-ui-express'
 
 
 
@@ -58,6 +60,24 @@ app.use(session({
 initPass()
 app.use(passport.initialize())
 app.use(passport.session())
+
+
+//Configuración Documentación con Swagger 
+
+const swaggerOptions = {
+    definition: {
+        openapi: '3.0.1',
+        info: {
+            title: "Documentación Ecommerce Coder",
+            description: "Documentación del código del Ecommerce desarrolada en el curso de Backend en CoderHouse"
+        }
+    },
+    apis: [`${__dirname}/docs/**/*.yaml`]
+}
+
+const specs = swaggerJSDoc(swaggerOptions)
+app.use('/apidocs', swaggerUiExpress.serve, swaggerUiExpress.setup(specs))
+
 
 
 

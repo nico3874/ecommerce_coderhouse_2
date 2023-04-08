@@ -15,7 +15,7 @@ export const cartCreate = async (req, res)=>{
     
     user.cartId = result
     await user.save()
-    console.log('constol'+user)
+    
     res.send(result)
 
 }

@@ -1,0 +1,231 @@
+paths:
+  /api/carts:
+    post:
+      summary: Crea un carrito para el usuario.
+      tags: 
+        - Carts
+      responses:
+        "200":
+          description: carrito creado exitosamente
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#components/schemas/Carts'
+  /api/carts/{id}:
+    get:
+      summary: Devuelve el carrito referenciado por la ID
+      tags:
+       - Carts
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: ID del Carrito que se quiere mostrar
+        schema:
+          $type: String 
+      responses:
+        "200":
+          description: Carrito encontrado.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#components/schemas/Carts'
+        "500":
+          description: No se conectó con la base de datos
+    delete:
+      summary: Vacia el carrito a partir del ID
+      tags:
+        - Carts
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: ID del Carrito que se quiere vaciar
+        schema:
+          $type: String
+      responses:
+        "200":
+          description: Carrito vacio
+                
+        
+  /api/products/{id}:
+    get:
+      summary: Obtiene un producto
+      tags:
+        - Products
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: ID del prodcuto que se solicita
+        schema:
+          $type: String
+      responses:
+        "200":
+          description: Usuario Encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#components/schemas/Products'
+    delete:
+      summary: Elimina un producto a partir del ID
+      tags:
+        - Products
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: ID del producto que se quiere eliminar
+        schema:
+          $type: String
+      responses:
+        "200":
+          description: Producto eliminado
+          content:
+            application/json:
+              schema:
+                $ref: '#components/schemas/Products'
+
+
+  /api/products/{cid}/prodcuts/{pid}:
+    post:
+      summary: Agrega un producto específico de un carrito
+      tags:
+        - Carts
+      parameters:
+      - name: cid
+        in: path
+        required: true
+        description: ID del carrito al que se quiere agregar.
+        schema:
+          $type: String
+      - name: pid
+        in: path
+        required: true
+        description: ID del producto que se quiere agregar.
+        schema:
+          $type: String    
+      responses:
+        "200":
+          description: Prodcuto agregado correctamente.
+    delete:
+      summary: Elimina un producto específico de un carrito
+      tags:
+        - Carts
+      parameters:
+      - name: cid
+        in: path
+        required: true
+        description: ID del carrito del cual se quiere eliminar el producto.
+        schema:
+          $type: String
+      - name: pid
+        in: path
+        required: true
+        description: ID del producto que se quiere eliminar del carrito.
+        schema:
+          $type: String    
+      responses:
+        "200":
+          description: Producto eliminado del carrito
+  /api/carts/{cid}/purchase:
+    post:
+      summary: Genera el ticket de compra con los productos del carrito
+      tags: 
+        - Carts
+      parameters: 
+      - name: cid
+        in: path
+        required: true
+        description: ID del carrito donde se obtendrá el ticket
+        schema: 
+          $type: String
+      responses:
+        "200":
+          description: Ticket generado exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#components/schemas/Ticket'
+
+components:
+  schemas:
+    Carts:
+      type: object
+      properties:
+        _id:
+          type: ObjetID
+          description: ID autogenerado en mongo
+        products: 
+          type: Array
+          description: Array de objetos productos con su ID y cantidad.
+      example:
+        _id: ObjectId("63d05a63e763debe04cc8dfe")
+        prodcuts: [{product:15d05a63e763debe04cc8dPl, quantity:50 }]
+    Ticket:
+      type: object
+      properties:
+        _id:
+          type: ObjectId
+          description: ID autogenerado en mongo
+        code:
+          type: String
+          description: Código alfanumérico aleatorio irrepetible
+        detail:
+          type: Array
+          description: Aquí se guardan los productos comprados
+        purchase_datetime:
+          type: String
+          description: Fecha en la que se concreta la compra
+        amount:
+          type: Number
+          description: Valor total de la compra
+        purcharser:
+          type: String
+          description: Email del usuario que realiza la compra        
+      example:
+        _id: ObjectId("63d05a63e763debe04cc8dfe")
+        code: afgh67398
+        detail: [63d05a63e763debe04cc8dfe, 63d05a63e763debe04cc8dfe, 63d05a63e763debe04cc8dfe]
+        purchase_datetime: 25/08/2022
+        amount: 60000
+        purcharser: juan@juan.com
+        
+  requestBodies:
+    updateProduct:
+      type: object
+      properties:
+        title:
+          type: String
+          description: Nombre del producto
+        descrption:
+          type: String
+          description: Detalle del producto
+        price:
+          type: Number
+          description: Precio del producto
+        thumbnail:
+          type: String
+          description: Direccion de la imagen del producto
+        code:
+          type: String
+          description: Código alfanumérico del producto
+        category:
+          type: String
+          description: El departamento al que pertenece el producto
+        owner:
+          type: String
+          description: Nombre del user premium que creó el producto o admin por default
+      example:
+        tilte: Teclado RedDragon
+        description: Teclado gamer
+        price: 3000
+        thumbnail: image/image
+        code: abd123
+        category: PC gamer
+        owner: admin 
+tags: []

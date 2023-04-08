@@ -1,0 +1,161 @@
+paths:
+  /api/products:
+    get:
+      summary: Devuelve todos los productos
+      tags:
+       - Products
+      responses:
+        "200":
+          description: Los productos fueron devuelvos satisfactoriamente.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#components/schemas/Products'
+        "500":
+          description: No se conectó con la base de datos
+    post:
+      summary: Crea un nuevo producto
+      tags:
+       - Products
+      responses:
+        "200":
+          description: Producto creado exitosamente.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#components/schemas/Products'
+        "500":
+          description: No se conectó con la base de datos      
+        
+  /api/products/{id}:
+    get:
+      summary: Obtiene un producto
+      tags:
+        - Products
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: ID del prodcuto que se solicita
+        schema:
+          $type: String
+      responses:
+        "200":
+          description: Usuario Encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#components/schemas/Products'
+                
+    put:
+      summary: actualiza un producto a partir del ID
+      tags:
+        - Products
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: ID del producto que se solicita
+        schema:
+          $type: String
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#components/requestBodies/updateProduct'
+    delete:
+      summary: Elimina un producto a partir del ID
+      tags:
+        - Products
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: ID del producto que se quiere eliminar
+        schema:
+          $type: String
+      responses:
+        "200":
+          description: Producto eliminado
+          content:
+            application/json:
+              schema:
+                $ref: '#components/schemas/Products'
+                
+components:
+  schemas:
+    Products:
+      type: object
+      properties:
+        _id:
+          type: ObjectId
+          description: ID auto generado en mongo
+        title:
+          type: String
+          description: Nombre del producto
+        descrption:
+          type: String
+          description: Detalle del producto
+        price:
+          type: Number
+          description: Precio del producto
+        thumbnail:
+          type: String
+          description: Direccion de la imagen del producto
+        code:
+          type: String
+          description: Código alfanumérico del producto
+        category:
+          type: String
+          description: El departamento al que pertenece el producto
+        owner:
+          type: String
+          description: Nombre del user premium que creó el producto o admin por default      
+      example:
+        _id: ObjectId("63d05a63e763debe04cc8dfe")
+        tilte: Teclado RedDragon
+        description: Teclado gamer
+        price: 3000
+        thumbnail: image/image
+        code: abd123
+        category: PC gamer
+        owner: admin 
+  requestBodies:
+    updateProduct:
+      type: object
+      properties:
+        title:
+          type: String
+          description: Nombre del producto
+        descrption:
+          type: String
+          description: Detalle del producto
+        price:
+          type: Number
+          description: Precio del producto
+        thumbnail:
+          type: String
+          description: Direccion de la imagen del producto
+        code:
+          type: String
+          description: Código alfanumérico del producto
+        category:
+          type: String
+          description: El departamento al que pertenece el producto
+        owner:
+          type: String
+          description: Nombre del user premium que creó el producto o admin por default
+      example:
+        tilte: Teclado RedDragon
+        description: Teclado gamer
+        price: 3000
+        thumbnail: image/image
+        code: abd123
+        category: PC gamer
+        owner: admin 
+tags: []
