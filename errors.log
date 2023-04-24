@@ -5213,3 +5213,518 @@ info: GET en /apidocs/swagger-ui-bundle.js - 20:21:31
 info: GET en /apidocs/swagger-ui-standalone-preset.js - 20:21:31
 info: GET en /apidocs/swagger-ui-init.js - 20:21:31
 info: POST en /api/carts/63d05a63e763debe04cc8dfe/purchase - 20:22:12
+info: GET en / - 17:57:31
+info: GET en /favicon.ico - 17:57:35
+info: GET en / - 19:15:37
+info: GET en / - 19:35:11
+info: GET en /api/products - 18:53:19
+info: GET en / - 18:53:51
+info: GET en /favicon.ico - 18:53:52
+info: GET en /sessions/login - 18:53:56
+info: POST en /sessions/login - 18:54:00
+info: GET en /products - 18:54:00
+info: GET en /api/products - 18:54:10
+info: GET en /api/products - 18:57:29
+info: GET en /api/products - 19:01:28
+info: GET en /api/products - 19:05:01
+info: GET en /api/products - 19:12:41
+info: GET en /api/products - 19:15:02
+info: GET en /api/products - 19:15:59
+info: GET en /api/products - 19:18:14
+info: GET en /api/products - 19:18:49
+info: GET en /api/products - 19:39:13
+info: GET en /api/products - 19:39:57
+info: GET en / - 19:47:54
+info: GET en /api/products - 19:48:54
+info: GET en /api/products - 20:19:51
+info: GET en /api/products - 20:22:08
+info: GET en /api/products - 20:25:02
+info: GET en / - 19:08:34
+info: GET en /favicon.ico - 19:08:35
+info: GET en /sessions/login - 19:08:47
+info: GET en /sessions/register - 19:09:21
+info: POST en /sessions/create - 19:09:58
+info: GET en /sessions/login - 19:09:58
+info: POST en /sessions/login - 19:10:10
+info: GET en /products - 19:10:10
+info: GET en /sessions/logout - 19:10:35
+info: GET en /sessions/login - 19:10:35
+info: POST en /sessions/login - 19:17:51
+info: GET en /api/products - 19:17:52
+info: POST en /sessions/login - 19:18:59
+info: GET en /api/products - 19:19:00
+info: POST en /sessions/login - 19:19:31
+info: GET en /api/products - 19:19:31
+info: POST en /sessions/login - 19:22:08
+info: GET en /products - 19:22:08
+info: POST en /sessions/login - 19:25:08
+info: GET en /api/products - 19:25:09
+info: POST en /sessions/login - 19:25:48
+info: GET en /api/products - 19:25:48
+info: POST en /sessions/login - 19:26:55
+info: GET en /api/products - 19:26:55
+info: POST en /sessions/login - 19:27:51
+info: GET en /api/products - 19:27:51
+info: POST en /sessions/login - 19:29:30
+info: GET en /api/products - 19:29:30
+info: POST en /sessions/login - 19:32:54
+info: GET en /api/products - 19:32:54
+info: POST en /sessions/login - 19:34:57
+info: GET en /api/products - 19:34:57
+info: POST en /sessions/login - 20:25:45
+info: GET en /api/products - 20:25:45
+info: POST en /sessions/login - 20:26:10
+info: GET en /api/products - 20:26:11
+info: POST en /sessions/login - 20:28:24
+info: GET en /api/products - 20:28:24
+info: POST en /sessions/login - 20:30:21
+info: GET en /api/products - 20:30:21
+info: POST en /sessions/login - 19:16:35
+info: GET en /api/products - 19:16:35
+info: POST en /sessions/login - 19:21:15
+info: GET en /api/products - 19:21:16
+info: POST en /sessions/login - 19:22:28
+info: GET en /api/products - 19:22:28
+info: POST en /sessions/login - 19:24:31
+info: GET en /api/products - 19:24:32
+info: POST en /sessions/login - 19:59:26
+info: GET en /api/products - 19:59:27
+info: POST en /sessions/login - 20:03:06
+info: GET en /api/products - 20:03:07
+info: GET en /api/products?id=63c84a4e1921bf88d06df923 - 20:03:07
+info: POST en /sessions/login - 20:03:55
+info: GET en /api/products - 20:03:55
+info: GET en /api/products?id=63c84a4e1921bf88d06df923 - 20:03:55
+info: POST en /sessions/login - 20:04:35
+info: GET en /api/products - 20:04:35
+info: GET en /api/products?id=63c84a4e1921bf88d06df923 - 20:04:36
+info: POST en /sessions/login - 20:05:10
+info: GET en /api/products - 20:05:10
+info: GET en /api/products?id=63c84a4e1921bf88d06df923 - 20:05:10
+info: POST en /sessions/login - 20:06:00
+info: GET en /api/products - 20:06:00
+info: GET en /api/products?id=63c84a4e1921bf88d06df923 - 20:06:00
+info: POST en /sessions/login - 20:06:25
+info: GET en /api/products - 20:06:25
+info: GET en /api/products/:id?id=63c84a4e1921bf88d06df923 - 20:06:26
+info: POST en /sessions/login - 20:06:48
+info: GET en /api/products - 20:06:48
+info: GET en /api/products/:id?id=63c84a4e1921bf88d06df923 - 20:06:48
+info: POST en /sessions/login - 20:07:06
+info: GET en /api/products - 20:07:06
+info: GET en /api/products/:id?id=63c84a4e1921bf88d06df923 - 20:07:07
+info: POST en /sessions/login - 20:08:08
+info: GET en /api/products - 20:08:09
+info: GET en /api/products/:id?id=63c84b701921bf88d06df92a - 20:08:09
+info: POST en /sessions/login - 20:11:12
+info: GET en /api/products - 20:11:12
+info: GET en /api/products/:id?63c84b701921bf88d06df92a - 20:11:12
+info: POST en /sessions/login - 20:12:38
+info: GET en /api/products - 20:12:38
+info: GET en /api/products/63c84b701921bf88d06df92a - 20:12:38
+info: POST en /sessions/login - 20:13:32
+info: GET en /api/products - 20:13:33
+info: GET en /api/products/63c84b701921bf88d06df92a - 20:13:33
+info: POST en /sessions/login - 20:17:34
+info: GET en /api/products - 20:17:35
+info: GET en /api/products/63c84b701921bf88d06df92a - 20:17:35
+info: POST en /sessions/login - 20:18:50
+info: GET en /api/products - 20:18:50
+info: GET en /api/products/63c84b701921bf88d06df92a - 20:18:50
+info: POST en /sessions/login - 20:19:36
+info: GET en /api/products - 20:19:36
+info: GET en /api/products/63c84b701921bf88d06df92a - 20:19:36
+info: POST en /sessions/login - 20:19:56
+info: GET en /api/products - 20:19:56
+info: GET en /api/products/63c84b701921bf88d06df92a - 20:19:56
+info: POST en /sessions/login - 20:25:45
+info: GET en /api/products - 20:25:45
+info: GET en /api/products/63c84b701921bf88d06df92a - 20:25:46
+info: POST en /api/products - 20:25:46
+warning: faltan algunos de estos datos obligatorios:
+        -title: Debe ser tipo string, recibe test
+        -description: Debe ser tipo string, recibe undefined
+        -price: Debe ser de tipo Number, recibe 30
+        -code: Debe ser de tipo String, recibe asd890
+        -stock: Debe ser de tipo Number, recibe undefined
+        -category: Debe ser tipo string, recibe undefined
+info: POST en /sessions/login - 20:27:16
+info: GET en /api/products - 20:27:16
+info: GET en /api/products/63c84b701921bf88d06df92a - 20:27:16
+info: POST en /api/products - 20:27:16
+warning: faltan algunos de estos datos obligatorios:
+        -title: Debe ser tipo string, recibe test
+        -description: Debe ser tipo string, recibe undefined
+        -price: Debe ser de tipo Number, recibe 30
+        -code: Debe ser de tipo String, recibe asd890
+        -stock: Debe ser de tipo Number, recibe undefined
+        -category: Debe ser tipo string, recibe undefined
+info: POST en /sessions/login - 20:28:04
+info: GET en /api/products - 20:28:04
+info: GET en /api/products/63c84b701921bf88d06df92a - 20:28:04
+info: POST en /api/products - 20:28:04
+warning: faltan algunos de estos datos obligatorios:
+        -title: Debe ser tipo string, recibe test
+        -description: Debe ser tipo string, recibe undefined
+        -price: Debe ser de tipo Number, recibe 30
+        -code: Debe ser de tipo String, recibe asd890
+        -stock: Debe ser de tipo Number, recibe undefined
+        -category: Debe ser tipo string, recibe undefined
+info: POST en /sessions/login - 20:30:30
+info: GET en /api/products - 20:30:30
+info: GET en /api/products/63c84b701921bf88d06df92a - 20:30:30
+info: POST en /api/products - 20:30:30
+info: POST en /sessions/login - 20:35:03
+info: GET en /api/products - 20:35:03
+info: GET en /api/products/63c84b701921bf88d06df92a - 20:35:03
+info: POST en /sessions/login - 20:35:44
+info: GET en /api/products - 20:35:45
+info: GET en /api/products/63c84b701921bf88d06df92a - 20:35:45
+info: POST en /api/products - 20:35:45
+info: POST en /sessions/login - 20:36:33
+info: GET en /api/products - 20:36:33
+info: GET en /api/products/63c84b701921bf88d06df92a - 20:36:34
+info: POST en /api/products - 20:36:34
+info: POST en /sessions/login - 20:37:29
+info: GET en /api/products - 20:37:29
+info: GET en /api/products/63c84b701921bf88d06df92a - 20:37:29
+info: POST en /api/products - 20:37:29
+info: POST en /sessions/login - 20:38:33
+info: GET en /api/products - 20:38:34
+info: GET en /api/products/63c84b701921bf88d06df92a - 20:38:34
+info: POST en /api/products - 20:38:34
+info: POST en /sessions/login - 20:57:34
+info: GET en /api/products - 20:57:34
+info: GET en /api/products/63c84b701921bf88d06df92a - 20:57:34
+info: PUT en /api/products - 20:57:34
+info: PUT en /api/products/6441ccb9f95a809b99541504 - 20:57:34
+warning: faltan algunos de estos datos obligatorios:
+        -title: Debe ser tipo string, recibe undefined
+        -description: Debe ser tipo string, recibe undefined
+        -price: Debe ser de tipo Number, recibe undefined
+        -code: Debe ser de tipo String, recibe undefined
+        -stock: Debe ser de tipo Number, recibe undefined
+        -category: Debe ser tipo string, recibe undefined
+info: POST en /sessions/login - 20:58:40
+info: GET en /api/products - 20:58:40
+info: GET en /api/products/63c84b701921bf88d06df92a - 20:58:40
+info: POST en /api/products - 20:58:40
+info: PUT en /api/products/6441ccb9f95a809b99541504 - 20:58:40
+warning: faltan algunos de estos datos obligatorios:
+        -title: Debe ser tipo string, recibe undefined
+        -description: Debe ser tipo string, recibe undefined
+        -price: Debe ser de tipo Number, recibe undefined
+        -code: Debe ser de tipo String, recibe undefined
+        -stock: Debe ser de tipo Number, recibe undefined
+        -category: Debe ser tipo string, recibe undefined
+info: POST en /sessions/login - 20:59:11
+info: GET en /api/products - 20:59:11
+info: GET en /api/products/63c84b701921bf88d06df92a - 20:59:11
+info: POST en /api/products - 20:59:11
+info: PUT en /api/products/6441ccb9f95a809b99541504 - 20:59:11
+warning: faltan algunos de estos datos obligatorios:
+        -title: Debe ser tipo string, recibe undefined
+        -description: Debe ser tipo string, recibe undefined
+        -price: Debe ser de tipo Number, recibe undefined
+        -code: Debe ser de tipo String, recibe undefined
+        -stock: Debe ser de tipo Number, recibe undefined
+        -category: Debe ser tipo string, recibe undefined
+info: POST en /sessions/login - 21:00:52
+info: GET en /api/products - 21:00:52
+info: GET en /api/products/63c84b701921bf88d06df92a - 21:00:53
+info: POST en /api/products - 21:00:53
+info: PUT en /api/products/6441ccb9f95a809b99541504 - 21:00:53
+info: Success {"productUpdate":{"category":"borrar","code":"asd890","description":"jfhdjfj","price":40,"stock":10,"title":"test"},"status":200}
+info: POST en /sessions/login - 21:01:24
+info: GET en /api/products - 21:01:24
+info: GET en /api/products/63c84b701921bf88d06df92a - 21:01:24
+info: POST en /api/products - 21:01:24
+info: PUT en /api/products/6441ccb9f95a809b99541504 - 21:01:24
+info: Success {"productUpdate":{"category":"borrar","code":"asd890","description":"jfhdjfj","price":40,"stock":10,"title":"test"},"status":200}
+info: POST en /sessions/login - 21:03:10
+info: GET en /api/products - 21:03:10
+info: GET en /api/products/63c84b701921bf88d06df92a - 21:03:10
+info: POST en /api/products - 21:03:10
+info: PUT en /api/products/6441ccb9f95a809b99541504 - 21:03:10
+info: Success {"productUpdate":{"category":"borrar","code":"asd890","description":"jfhdjfj","owner":"admin","price":50,"status":true,"stock":10,"title":"test"},"status":200}
+info: POST en /sessions/login - 21:05:46
+info: GET en /api/products - 21:05:47
+info: GET en /api/products/63c84b701921bf88d06df92a - 21:05:47
+info: POST en /api/products - 21:05:47
+info: POST en /sessions/login - 21:06:15
+info: GET en /api/products - 21:06:15
+info: GET en /api/products/63c84b701921bf88d06df92a - 21:06:15
+info: POST en /api/products - 21:06:15
+info: PUT en /api/products/6441ccb9f95a809b99541504 - 21:06:16
+info: Success {"productUpdate":{"_id":"6441ccb9f95a809b99541504","category":"borrar","code":"asd890","description":"jfhdjfj","owner":"admin","price":50,"status":true,"stock":10,"title":"test"},"status":200}
+info: POST en /sessions/login - 21:08:42
+info: GET en /api/products - 21:08:42
+info: GET en /api/products/63c84b701921bf88d06df92a - 21:08:42
+info: POST en /api/products - 21:08:42
+info: POST en /sessions/login - 21:09:02
+info: GET en /api/products - 21:09:02
+info: GET en /api/products/63c84b701921bf88d06df92a - 21:09:02
+info: POST en /api/products - 21:09:02
+info: PUT en /api/products/6441ccb9f95a809b99541504 - 21:09:02
+info: Success {"productUpdate":{"_id":"6441ccb9f95a809b99541504","category":"borrar","code":"asd890","description":"jfhdjfj","owner":"admin","price":50,"status":true,"stock":10,"title":"test"},"status":200}
+info: POST en /sessions/login - 21:09:55
+info: POST en /sessions/login - 21:10:26
+info: GET en /api/products - 21:10:26
+info: GET en /api/products/63c84b701921bf88d06df92a - 21:10:26
+info: POST en /api/products - 21:10:26
+info: PUT en /api/products/6441ccb9f95a809b99541504 - 21:10:26
+info: Success {"productUpdate":{"_id":"6441ccb9f95a809b99541504","category":"borrar","code":"asd890","description":"jfhdjfj","owner":"admin","price":50,"status":true,"stock":10,"title":"test"},"status":200}
+info: POST en /sessions/login - 21:14:24
+info: GET en /api/products - 21:14:24
+info: GET en /api/products/63c84b701921bf88d06df92a - 21:14:24
+info: POST en /api/products - 21:14:24
+info: PUT en /api/products/6441ccb9f95a809b99541504 - 21:14:24
+info: Success {"productUpdate":{"_id":"6441ccb9f95a809b99541504","category":"borrar","code":"asd890","description":"jfhdjfj","owner":"admin","price":50,"status":true,"stock":10,"title":"test"},"status":200}
+info: POST en /sessions/login - 21:19:48
+info: GET en /api/products - 21:19:48
+info: GET en /api/products/63c84b701921bf88d06df92a - 21:19:48
+info: POST en /api/products - 21:19:48
+info: PUT en /api/products/6441ccb9f95a809b99541504 - 21:19:49
+info: Success {"productUpdate":{"_id":"6441ccb9f95a809b99541504","category":"borrar","code":"asd890","description":"jfhdjfj","owner":"admin","price":50,"status":true,"stock":10,"title":"test"},"status":200}
+info: DELETE en /api/products/6441d1b015f60d7aab5d7ab9 - 21:19:49
+info: Producto eliminado {"status":"Success"}
+info: POST en /sessions/login - 21:20:50
+info: GET en /api/products - 21:20:50
+info: GET en /api/products/63c84b701921bf88d06df92a - 21:20:50
+info: POST en /api/products - 21:20:50
+info: PUT en /api/products/6441ccb9f95a809b99541504 - 21:20:50
+info: Success {"productUpdate":{"_id":"6441ccb9f95a809b99541504","category":"borrar","code":"asd890","description":"jfhdjfj","owner":"admin","price":50,"status":true,"stock":10,"title":"test"},"status":200}
+info: DELETE en /api/products/6441d1cf98baae2545deeaf7 - 21:20:50
+info: Producto eliminado {"status":"Success"}
+info: POST en /sessions/login - 21:22:23
+info: GET en /api/products - 21:22:23
+info: GET en /api/products/63c84b701921bf88d06df92a - 21:22:23
+info: POST en /api/products - 21:22:24
+info: PUT en /api/products/6441ccb9f95a809b99541504 - 21:22:24
+info: Success {"productUpdate":{"_id":"6441ccb9f95a809b99541504","category":"borrar","code":"asd890","description":"jfhdjfj","owner":"admin","price":50,"status":true,"stock":10,"title":"test"},"status":200}
+info: DELETE en /api/products/6441ccfa2ae8d9627c679811 - 21:22:24
+info: Producto eliminado {"status":"Success"}
+info: POST en /sessions/login - 21:24:31
+info: GET en /api/products - 21:24:31
+info: GET en /api/products/63c84b701921bf88d06df92a - 21:24:31
+info: POST en /api/products - 21:24:32
+info: PUT en /api/products/6441ccb9f95a809b99541504 - 21:24:32
+info: Success {"productUpdate":{"_id":"6441ccb9f95a809b99541504","category":"borrar","code":"asd890","description":"jfhdjfj","owner":"admin","price":50,"status":true,"stock":10,"title":"test"},"status":200}
+info: POST en /sessions/login - 21:24:39
+info: GET en /api/products - 21:24:39
+info: GET en /api/products/63c84b701921bf88d06df92a - 21:24:39
+info: POST en /api/products - 21:24:39
+info: PUT en /api/products/6441ccb9f95a809b99541504 - 21:24:39
+info: Success {"productUpdate":{"_id":"6441ccb9f95a809b99541504","category":"borrar","code":"asd890","description":"jfhdjfj","owner":"admin","price":50,"status":true,"stock":10,"title":"test"},"status":200}
+info: POST en /sessions/login - 21:25:39
+info: GET en /api/products - 21:25:39
+info: GET en /api/products/63c84b701921bf88d06df92a - 21:25:39
+info: POST en /api/products - 21:25:39
+info: PUT en /api/products/6441ccb9f95a809b99541504 - 21:25:39
+info: Success {"productUpdate":{"_id":"6441ccb9f95a809b99541504","category":"borrar","code":"asd890","description":"jfhdjfj","owner":"admin","price":50,"status":true,"stock":10,"title":"test"},"status":200}
+info: POST en /sessions/login - 21:27:04
+info: GET en /api/products - 21:27:04
+info: GET en /api/products/63c84b701921bf88d06df92a - 21:27:04
+info: POST en /api/products - 21:27:04
+info: PUT en /api/products/6441ccb9f95a809b99541504 - 21:27:05
+info: Success {"productUpdate":{"_id":"6441ccb9f95a809b99541504","category":"borrar","code":"asd890","description":"jfhdjfj","owner":"admin","price":50,"status":true,"stock":10,"title":"test"},"status":200}
+info: DELETE en /api/products/6441d85835134ae526f7fb8f - 21:27:05
+info: Producto eliminado {"status":"Success"}
+info: POST en /sessions/login - 18:53:22
+info: GET en /api/products - 18:53:23
+info: GET en /api/products/63c84b701921bf88d06df92a - 18:53:23
+info: POST en /api/products - 18:53:23
+info: PUT en /api/products/6446fa53d3824500d7930616 - 18:53:23
+info: [object Object]
+info: DELETE en /api/products/6446fa53d3824500d7930616 - 18:53:23
+info: Producto eliminado {"status":"Success"}
+info: POST en /sessions/login - 18:53:53
+info: POST en /sessions/login - 18:54:21
+info: GET en /api/products - 18:54:21
+info: GET en /api/products/63c84b701921bf88d06df92a - 18:54:21
+info: POST en /api/products - 18:54:21
+info: PUT en /api/products/6446fa8dd2d70da01f9e8f24 - 18:54:21
+info: Success {"productUpdate":{"_id":"6446fa8dd2d70da01f9e8f24","category":"borrar","code":"asd890","description":"jfhdjfj","owner":"admin","price":50,"status":true,"stock":10,"title":"test"},"status":200}
+info: DELETE en /api/products/6446fa8dd2d70da01f9e8f24 - 18:54:21
+info: Producto eliminado {"status":"Success"}
+info: POST en /sessions/login - 18:54:27
+info: GET en /api/products - 18:54:27
+info: GET en /api/products/63c84b701921bf88d06df92a - 18:54:27
+info: POST en /api/products - 18:54:27
+info: PUT en /api/products/6446fa93d2d70da01f9e8f2c - 18:54:27
+info: Success {"productUpdate":{"_id":"6446fa93d2d70da01f9e8f2c","category":"borrar","code":"asd890","description":"jfhdjfj","owner":"admin","price":50,"status":true,"stock":10,"title":"test"},"status":200}
+info: DELETE en /api/products/6446fa93d2d70da01f9e8f2c - 18:54:27
+info: Producto eliminado {"status":"Success"}
+info: GET en / - 18:56:59
+info: GET en /favicon.ico - 18:57:03
+info: GET en /sessions/login - 18:57:06
+info: POST en /sessions/login - 18:57:49
+info: GET en /products - 18:57:49
+info: POST en /sessions/login - 19:07:00
+info: GET en /api/products - 19:07:00
+info: GET en /api/products/63c84b701921bf88d06df92a - 19:07:00
+info: POST en /api/products - 19:07:00
+info: PUT en /api/products/6446fd8474808b648e78951d - 19:07:00
+info: Success {"productUpdate":{"_id":"6446fd8474808b648e78951d","category":"borrar","code":"asd890","description":"jfhdjfj","owner":"admin","price":50,"status":true,"stock":10,"title":"test"},"status":200}
+info: DELETE en /api/products/6446fd8474808b648e78951d - 19:07:01
+info: Producto eliminado {"status":"Success"}
+info: POST en /sessions/login - 19:07:01
+info: GET en /api/products/642a2d4c3941205eb3140ebf - 19:07:01
+info: POST en /sessions/login - 19:07:27
+info: GET en /api/products - 19:07:27
+info: GET en /api/products/63c84b701921bf88d06df92a - 19:07:27
+info: POST en /api/products - 19:07:27
+info: PUT en /api/products/6446fd9f37c96bbfb326faf6 - 19:07:28
+info: Success {"productUpdate":{"_id":"6446fd9f37c96bbfb326faf6","category":"borrar","code":"asd890","description":"jfhdjfj","owner":"admin","price":50,"status":true,"stock":10,"title":"test"},"status":200}
+info: DELETE en /api/products/6446fd9f37c96bbfb326faf6 - 19:07:28
+info: Producto eliminado {"status":"Success"}
+info: POST en /sessions/login - 19:07:28
+info: GET en /api/carts/642a2d4c3941205eb3140ebf - 19:07:28
+info: Carrito encontrado {"cart":{"__v":3,"_id":"642a2d4c3941205eb3140ebf","products":[{"_id":"642b349fff6528d6d4f827ff","product":"63c84a4e1921bf88d06df923","quantity":1},{"_id":"642b352d44c3d6c07b15571b","product":"63c84b701921bf88d06df92a","quantity":1},{"_id":"642b36a2613f4100ac014bd7","product":"642b3683613f4100ac014bc7","quantity":1}]},"status":"Success"}
+info: POST en /sessions/login - 19:26:50
+info: GET en /api/products - 19:26:51
+info: GET en /api/products/63c84b701921bf88d06df92a - 19:26:51
+info: POST en /api/products - 19:26:51
+info: PUT en /api/products/6447022b513490b16f621c5c - 19:26:51
+info: Success {"productUpdate":{"_id":"6447022b513490b16f621c5c","category":"borrar","code":"asd890","description":"jfhdjfj","owner":"admin","price":50,"status":true,"stock":10,"title":"test"},"status":200}
+info: DELETE en /api/products/6447022b513490b16f621c5c - 19:26:51
+info: Producto eliminado {"status":"Success"}
+info: POST en /sessions/login - 19:26:51
+info: GET en /api/carts/642a2d4c3941205eb3140ebf - 19:26:51
+info: Carrito encontrado {"cart":{"__v":3,"_id":"642a2d4c3941205eb3140ebf","products":[{"_id":"642b349fff6528d6d4f827ff","product":"63c84a4e1921bf88d06df923","quantity":1},{"_id":"642b352d44c3d6c07b15571b","product":"63c84b701921bf88d06df92a","quantity":1},{"_id":"642b36a2613f4100ac014bd7","product":"642b3683613f4100ac014bc7","quantity":1}]},"status":"Success"}
+info: GET en /api/carts/642a2d4c3941205eb3140ebf - 19:26:52
+info: Carrito encontrado {"cart":{"__v":3,"_id":"642a2d4c3941205eb3140ebf","products":[{"_id":"642b349fff6528d6d4f827ff","product":"63c84a4e1921bf88d06df923","quantity":1},{"_id":"642b352d44c3d6c07b15571b","product":"63c84b701921bf88d06df92a","quantity":1},{"_id":"642b36a2613f4100ac014bd7","product":"642b3683613f4100ac014bc7","quantity":1}]},"status":"Success"}
+info: POST en /sessions/login - 19:37:42
+info: GET en /api/products - 19:37:42
+info: GET en /api/products/63c84b701921bf88d06df92a - 19:37:42
+info: POST en /api/products - 19:37:42
+info: PUT en /api/products/644704b6df64542983910866 - 19:37:42
+info: Success {"productUpdate":{"_id":"644704b6df64542983910866","category":"borrar","code":"asd890","description":"jfhdjfj","owner":"admin","price":50,"status":true,"stock":10,"title":"test"},"status":200}
+info: DELETE en /api/products/644704b6df64542983910866 - 19:37:43
+info: Producto eliminado {"status":"Success"}
+info: POST en /sessions/login - 19:37:43
+info: GET en /api/carts/642a2d4c3941205eb3140ebf - 19:37:43
+info: Carrito encontrado {"cart":{"__v":3,"_id":"642a2d4c3941205eb3140ebf","products":[{"_id":"642b349fff6528d6d4f827ff","product":"63c84a4e1921bf88d06df923","quantity":1},{"_id":"642b352d44c3d6c07b15571b","product":"63c84b701921bf88d06df92a","quantity":1},{"_id":"642b36a2613f4100ac014bd7","product":"642b3683613f4100ac014bc7","quantity":1}]},"status":"Success"}
+info: POST en /api/carts/642a2d4c3941205eb3140ebf/products/641e30853cca493a6d5ac6aa - 19:37:43
+info: POST en /sessions/login - 19:42:02
+info: GET en /api/products - 19:42:03
+info: GET en /api/products/63c84b701921bf88d06df92a - 19:42:03
+info: POST en /api/products - 19:42:03
+info: PUT en /api/products/644705bb2b9bd254ebe97606 - 19:42:03
+info: Success {"productUpdate":{"_id":"644705bb2b9bd254ebe97606","category":"borrar","code":"asd890","description":"jfhdjfj","owner":"admin","price":50,"status":true,"stock":10,"title":"test"},"status":200}
+info: DELETE en /api/products/644705bb2b9bd254ebe97606 - 19:42:03
+info: Producto eliminado {"status":"Success"}
+info: POST en /sessions/login - 19:42:03
+info: GET en /api/carts/642a2d4c3941205eb3140ebf - 19:42:03
+info: Carrito encontrado {"cart":{"__v":4,"_id":"642a2d4c3941205eb3140ebf","products":[{"_id":"642b349fff6528d6d4f827ff","product":"63c84a4e1921bf88d06df923","quantity":1},{"_id":"642b352d44c3d6c07b15571b","product":"63c84b701921bf88d06df92a","quantity":1},{"_id":"642b36a2613f4100ac014bd7","product":"642b3683613f4100ac014bc7","quantity":1},{"_id":"644704b7df64542983910875","product":"641e30853cca493a6d5ac6aa","quantity":3}]},"status":"Success"}
+info: POST en /api/carts/642a2d4c3941205eb3140ebf/product/641e30853cca493a6d5ac6aa - 19:42:04
+info: POST en /sessions/login - 19:44:31
+info: GET en /api/products - 19:44:31
+info: GET en /api/products/63c84b701921bf88d06df92a - 19:44:31
+info: POST en /api/products - 19:44:32
+info: PUT en /api/products/64470650791da4a61df5bc68 - 19:44:32
+info: Success {"productUpdate":{"_id":"64470650791da4a61df5bc68","category":"borrar","code":"asd890","description":"jfhdjfj","owner":"admin","price":50,"status":true,"stock":10,"title":"test"},"status":200}
+info: DELETE en /api/products/64470650791da4a61df5bc68 - 19:44:32
+info: Producto eliminado {"status":"Success"}
+info: POST en /sessions/login - 19:44:32
+info: GET en /api/carts/642a2d4c3941205eb3140ebf - 19:44:32
+info: Carrito encontrado {"cart":{"__v":4,"_id":"642a2d4c3941205eb3140ebf","products":[{"_id":"642b349fff6528d6d4f827ff","product":"63c84a4e1921bf88d06df923","quantity":1},{"_id":"642b352d44c3d6c07b15571b","product":"63c84b701921bf88d06df92a","quantity":1},{"_id":"642b36a2613f4100ac014bd7","product":"642b3683613f4100ac014bc7","quantity":1},{"_id":"644704b7df64542983910875","product":"641e30853cca493a6d5ac6aa","quantity":3}]},"status":"Success"}
+info: POST en /api/carts/642a2d4c3941205eb3140ebf/products/641e30853cca493a6d5ac6aa - 19:44:32
+info: POST en /sessions/login - 19:45:05
+info: GET en /api/products - 19:45:05
+info: GET en /api/products/63c84b701921bf88d06df92a - 19:45:05
+info: POST en /api/products - 19:45:05
+info: PUT en /api/products/6447067183c624f2c6a1a1c6 - 19:45:06
+info: Success {"productUpdate":{"_id":"6447067183c624f2c6a1a1c6","category":"borrar","code":"asd890","description":"jfhdjfj","owner":"admin","price":50,"status":true,"stock":10,"title":"test"},"status":200}
+info: DELETE en /api/products/6447067183c624f2c6a1a1c6 - 19:45:06
+info: Producto eliminado {"status":"Success"}
+info: POST en /sessions/login - 19:45:06
+info: GET en /api/carts/642a2d4c3941205eb3140ebf - 19:45:06
+info: Carrito encontrado {"cart":{"__v":5,"_id":"642a2d4c3941205eb3140ebf","products":[{"_id":"642b349fff6528d6d4f827ff","product":"63c84a4e1921bf88d06df923","quantity":1},{"_id":"642b352d44c3d6c07b15571b","product":"63c84b701921bf88d06df92a","quantity":1},{"_id":"642b36a2613f4100ac014bd7","product":"642b3683613f4100ac014bc7","quantity":1},{"_id":"64470650791da4a61df5bc79","product":"641e30853cca493a6d5ac6aa","quantity":3}]},"status":"Success"}
+info: POST en /api/carts/642a2d4c3941205eb3140ebf/products/641e30853cca493a6d5ac6aa - 19:45:06
+info: POST en /sessions/login - 19:50:56
+info: GET en /api/products - 19:50:56
+info: GET en /api/products/63c84b701921bf88d06df92a - 19:50:56
+info: POST en /api/products - 19:50:56
+info: PUT en /api/products/644707d054237f2d3bf5e732 - 19:50:57
+info: Success {"productUpdate":{"_id":"644707d054237f2d3bf5e732","category":"borrar","code":"asd890","description":"jfhdjfj","owner":"admin","price":50,"status":true,"stock":10,"title":"test"},"status":200}
+info: DELETE en /api/products/644707d054237f2d3bf5e732 - 19:50:57
+info: Producto eliminado {"status":"Success"}
+info: POST en /sessions/login - 19:50:57
+info: GET en /api/carts/642a2d4c3941205eb3140ebf - 19:50:57
+info: Carrito encontrado {"cart":{"__v":6,"_id":"642a2d4c3941205eb3140ebf","products":[{"_id":"642b349fff6528d6d4f827ff","product":"63c84a4e1921bf88d06df923","quantity":1},{"_id":"642b352d44c3d6c07b15571b","product":"63c84b701921bf88d06df92a","quantity":1},{"_id":"642b36a2613f4100ac014bd7","product":"642b3683613f4100ac014bc7","quantity":1},{"_id":"6447067283c624f2c6a1a1d7","product":"641e30853cca493a6d5ac6aa","quantity":3}]},"status":"Success"}
+info: POST en /api/carts/642a2d4c3941205eb3140ebf/products/641e30853cca493a6d5ac6aa - 19:50:57
+info: POST en /sessions/login - 19:54:39
+info: GET en /api/products - 19:54:40
+info: GET en /api/products/63c84b701921bf88d06df92a - 19:54:40
+info: POST en /api/products - 19:54:40
+info: PUT en /api/products/644708b0939afc8da2777b50 - 19:54:40
+info: Success {"productUpdate":{"_id":"644708b0939afc8da2777b50","category":"borrar","code":"asd890","description":"jfhdjfj","owner":"admin","price":50,"status":true,"stock":10,"title":"test"},"status":200}
+info: DELETE en /api/products/644708b0939afc8da2777b50 - 19:54:40
+info: Producto eliminado {"status":"Success"}
+info: POST en /sessions/login - 19:54:40
+info: GET en /api/carts/642a2d4c3941205eb3140ebf - 19:54:40
+info: Carrito encontrado {"cart":{"__v":7,"_id":"642a2d4c3941205eb3140ebf","products":[{"_id":"642b349fff6528d6d4f827ff","product":"63c84a4e1921bf88d06df923","quantity":1},{"_id":"642b352d44c3d6c07b15571b","product":"63c84b701921bf88d06df92a","quantity":1},{"_id":"642b36a2613f4100ac014bd7","product":"642b3683613f4100ac014bc7","quantity":1},{"_id":"644707d154237f2d3bf5e743","product":"641e30853cca493a6d5ac6aa"}]},"status":"Success"}
+info: POST en /api/carts/642a2d4c3941205eb3140ebf/products/641e30853cca493a6d5ac6aa - 19:54:41
+info: POST en /sessions/login - 19:55:24
+info: GET en /api/products - 19:55:25
+info: GET en /api/products/63c84b701921bf88d06df92a - 19:55:25
+info: POST en /api/products - 19:55:25
+info: PUT en /api/products/644708ddf4de99570122fc7f - 19:55:25
+info: Success {"productUpdate":{"_id":"644708ddf4de99570122fc7f","category":"borrar","code":"asd890","description":"jfhdjfj","owner":"admin","price":50,"status":true,"stock":10,"title":"test"},"status":200}
+info: DELETE en /api/products/644708ddf4de99570122fc7f - 19:55:25
+info: Producto eliminado {"status":"Success"}
+info: POST en /sessions/login - 19:55:25
+info: GET en /api/carts/642a2d4c3941205eb3140ebf - 19:55:26
+info: Carrito encontrado {"cart":{"__v":8,"_id":"642a2d4c3941205eb3140ebf","products":[{"_id":"642b349fff6528d6d4f827ff","product":"63c84a4e1921bf88d06df923","quantity":1},{"_id":"642b352d44c3d6c07b15571b","product":"63c84b701921bf88d06df92a","quantity":1},{"_id":"642b36a2613f4100ac014bd7","product":"642b3683613f4100ac014bc7","quantity":1},{"_id":"644708b1939afc8da2777b61","product":"641e30853cca493a6d5ac6aa"}]},"status":"Success"}
+info: POST en /api/carts/642a2d4c3941205eb3140ebf/products/641e30853cca493a6d5ac6aa - 19:55:26
+info: POST en /sessions/login - 19:56:32
+info: GET en /api/products - 19:56:32
+info: GET en /api/products/63c84b701921bf88d06df92a - 19:56:32
+info: POST en /api/products - 19:56:32
+info: PUT en /api/products/6447092075b9229f6d6d95fa - 19:56:32
+info: Success {"productUpdate":{"_id":"6447092075b9229f6d6d95fa","category":"borrar","code":"asd890","description":"jfhdjfj","owner":"admin","price":50,"status":true,"stock":10,"title":"test"},"status":200}
+info: DELETE en /api/products/6447092075b9229f6d6d95fa - 19:56:32
+info: Producto eliminado {"status":"Success"}
+info: POST en /sessions/login - 19:56:32
+info: GET en /api/carts/642a2d4c3941205eb3140ebf - 19:56:33
+info: Carrito encontrado {"cart":{"__v":9,"_id":"642a2d4c3941205eb3140ebf","products":[{"_id":"642b349fff6528d6d4f827ff","product":"63c84a4e1921bf88d06df923","quantity":1},{"_id":"642b352d44c3d6c07b15571b","product":"63c84b701921bf88d06df92a","quantity":1},{"_id":"642b36a2613f4100ac014bd7","product":"642b3683613f4100ac014bc7","quantity":1},{"_id":"644708def4de99570122fc90","product":"641e30853cca493a6d5ac6aa"}]},"status":"Success"}
+info: POST en /api/carts/642a2d4c3941205eb3140ebf/products/641e30853cca493a6d5ac6aa - 19:56:33
+info: POST en /sessions/login - 19:59:59
+info: GET en /api/products - 19:59:59
+info: GET en /api/products/63c84b701921bf88d06df92a - 20:00:00
+info: POST en /api/products - 20:00:00
+info: PUT en /api/products/644709f04d01433ce11f1d5c - 20:00:00
+info: Success {"productUpdate":{"_id":"644709f04d01433ce11f1d5c","category":"borrar","code":"asd890","description":"jfhdjfj","owner":"admin","price":50,"status":true,"stock":10,"title":"test"},"status":200}
+info: DELETE en /api/products/644709f04d01433ce11f1d5c - 20:00:00
+info: Producto eliminado {"status":"Success"}
+info: POST en /sessions/login - 20:00:00
+info: GET en /api/carts/642a2d4c3941205eb3140ebf - 20:00:00
+info: Carrito encontrado {"cart":{"__v":10,"_id":"642a2d4c3941205eb3140ebf","products":[{"_id":"642b349fff6528d6d4f827ff","product":"63c84a4e1921bf88d06df923","quantity":1},{"_id":"642b352d44c3d6c07b15571b","product":"63c84b701921bf88d06df92a","quantity":1},{"_id":"642b36a2613f4100ac014bd7","product":"642b3683613f4100ac014bc7","quantity":1},{"_id":"6447092175b9229f6d6d960b","product":"641e30853cca493a6d5ac6aa","quantity":7}]},"status":"Success"}
+info: POST en /api/carts/642a2d4c3941205eb3140ebf/products/641e30853cca493a6d5ac6aa - 20:00:00
+info: POST en /sessions/login - 20:00:26
+info: GET en /api/products - 20:00:26
+info: GET en /api/products/63c84b701921bf88d06df92a - 20:00:26
+info: POST en /api/products - 20:00:26
+info: PUT en /api/products/64470a0ae31a87302477c95b - 20:00:27
+info: Success {"productUpdate":{"_id":"64470a0ae31a87302477c95b","category":"borrar","code":"asd890","description":"jfhdjfj","owner":"admin","price":50,"status":true,"stock":10,"title":"test"},"status":200}
+info: DELETE en /api/products/64470a0ae31a87302477c95b - 20:00:27
+info: Producto eliminado {"status":"Success"}
+info: POST en /sessions/login - 20:00:27
+info: GET en /api/carts/642a2d4c3941205eb3140ebf - 20:00:27
+info: Carrito encontrado {"cart":{"__v":11,"_id":"642a2d4c3941205eb3140ebf","products":[{"_id":"642b349fff6528d6d4f827ff","product":"63c84a4e1921bf88d06df923","quantity":1},{"_id":"642b352d44c3d6c07b15571b","product":"63c84b701921bf88d06df92a","quantity":1},{"_id":"642b36a2613f4100ac014bd7","product":"642b3683613f4100ac014bc7","quantity":1},{"_id":"644709f04d01433ce11f1d6d","product":"641e30853cca493a6d5ac6aa","quantity":7}]},"status":"Success"}
+info: POST en /api/carts/642a2d4c3941205eb3140ebf/products/641e30853cca493a6d5ac6aa - 20:00:27
+info: POST en /sessions/login - 20:06:01
+info: GET en /api/products - 20:06:01
+info: GET en /api/products/63c84b701921bf88d06df92a - 20:06:01
+info: POST en /api/products - 20:06:01
+info: PUT en /api/products/64470b596679f93fe169c4cc - 20:06:01
+info: Success {"productUpdate":{"_id":"64470b596679f93fe169c4cc","category":"borrar","code":"asd890","description":"jfhdjfj","owner":"admin","price":50,"status":true,"stock":10,"title":"test"},"status":200}
+info: DELETE en /api/products/64470b596679f93fe169c4cc - 20:06:02
+info: Producto eliminado {"status":"Success"}
+info: POST en /sessions/login - 20:06:02
+info: GET en /api/carts/642a2d4c3941205eb3140ebf - 20:06:02
+info: Carrito encontrado {"cart":{"__v":12,"_id":"642a2d4c3941205eb3140ebf","products":[{"_id":"642b349fff6528d6d4f827ff","product":"63c84a4e1921bf88d06df923","quantity":1},{"_id":"642b352d44c3d6c07b15571b","product":"63c84b701921bf88d06df92a","quantity":1},{"_id":"642b36a2613f4100ac014bd7","product":"642b3683613f4100ac014bc7","quantity":1},{"_id":"64470a0be31a87302477c96c","product":"641e30853cca493a6d5ac6aa","quantity":4}]},"status":"Success"}
+info: POST en /api/carts/642a2d4c3941205eb3140ebf/products/641e30853cca493a6d5ac6aa - 20:06:02
+info: DELETE en /api/carts/642a2d4c3941205eb3140ebf/products/641e30853cca493a6d5ac6aa - 20:06:02
+info: Producto eliminado 
