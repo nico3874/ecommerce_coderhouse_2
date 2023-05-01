@@ -1,5 +1,5 @@
 import { Router } from "express";
-import {getProducts, getProductsById, addProducts, updateProducts, deleteProduct, generateProductService} from '../controllers/products.controller.js'
+import {getProducts, getProductsById, addProducts, updateProducts, deleteProduct, generateProductService, getImgProduct} from '../controllers/products.controller.js'
 import { roleAdmin} from "./sessions.router.js";
 import { passportCall } from "../utils.js";
 
@@ -11,7 +11,7 @@ router.get('/',passportCall('jwt'), roleAdmin, getProducts)
 
 router.get('/:id',passportCall('jwt'), roleAdmin, getProductsById)
 
-router.post('/',passportCall('jwt'), roleAdmin, addProducts)
+router.post('/',passportCall('jwt'), roleAdmin,getImgProduct, addProducts)
 
 router.put('/:id' ,passportCall('jwt'),roleAdmin, updateProducts)
 

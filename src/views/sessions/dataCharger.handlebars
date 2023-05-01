@@ -1,0 +1,44 @@
+<h2 class="my-5">Actualización de perfil</h2>
+<form method="post" action="/api/user/{{userId}}/documents" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label for="inputFoto" class="form-label">Foto de perfil</label>
+          <input class="form-control" type="file" id="inputFoto"  name="inputFoto" required/>
+        </div>
+        <div class="mb-3">
+          <label for="identificacion" class="form-label"
+            >Identificación</label
+          >
+          <input
+            class="form-control"
+            type="file"
+            id="identificacion"
+            name="identificacion"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="domicilio" class="form-label"
+            >Comprobante de Domicilio</label
+          >
+          <input
+            class="form-control"
+            type="file"
+            id="domicilio"
+            name="domicilio"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="estadoCuenta" class="form-label"
+            >Estado de Cuenta</label
+          >
+          <input
+            class="form-control"
+            type="file"
+            id="estadoCuenta"
+            name="estadoCuenta"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+</form>

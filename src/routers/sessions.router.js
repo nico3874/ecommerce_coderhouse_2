@@ -51,6 +51,7 @@ router.post('/create', passport.authenticate('register', {failureRedirect:'/sess
     const userCart = await cartsModel.create(req.body)
     const user = await usersModel.findOne({_id: new mongoose.Types.ObjectId(req.user._id)})
     user.cartId = userCart
+    
     user.save()
     res.redirect('/sessions/login')
 })
@@ -74,8 +75,9 @@ router.get('/login', (req, res)=>{
 //Login con passport y estrategia local
 
 router.post('/login', passport.authenticate('login', {failureRedirect:'/sessions/failedLogin'}),async (req, res)=>{
-
-
+const user = await usersModel.findOne({_id: new mongoose.Types.ObjectId(req.user._id)})
+user.last_connection = new Date().toLocaleDateString() + '  ' +new Date().toLocaleTimeString()
+user.save()
 res.cookie('userToken', req.user.token).redirect('/products')
 
 })

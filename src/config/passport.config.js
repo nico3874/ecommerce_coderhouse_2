@@ -74,6 +74,7 @@ async(req, username, password, done)=>{
                     return done (null, false)
                 }
                 if(!isValidPassword(user, password)) return done(null, false)
+
                 
                 const acces_token = generateToken(user)
                 user.token = acces_token

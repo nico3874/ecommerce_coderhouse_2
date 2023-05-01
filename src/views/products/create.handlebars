@@ -1,6 +1,6 @@
 <h2>Cargue los datos para crear el nuevo prodcuto</h2>
 
-<form action="/api/products" method="post">
+<form action="/api/products" method="post" enctype="multipart/form-data">
     <div class="mb-3">
       <label for="title" class="form-label">Title:</label>
       <input type="text" class="form-control" id="title" name="title">
@@ -28,6 +28,10 @@
     <div class="mb-3">
       <label for="stock" class="form-label">Stock:</label>
       <input type="number" class="form-control" id="stock" name="stock">
+    </div>
+    <div class="mb-3">
+      <label for="imgProduct" class="form-label">Imagen de Producto:</label>
+      <input type="file" class="form-control" id="imgProduct" name="imgProduct">
     </div>
     <button type="submit" class="btn btn-primary">Enviar información</button>
 </form>
