@@ -16,20 +16,20 @@ const usersSchema = mongoose.Schema({
         type:String,
         default:'user'
     },
-    cartId:{
+    cartId:[{
         
-        type:mongoose.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref:'carts',
-    },
+    }],
     documents: [{name:String, reference: String}], 
-    last_connection: String
+    last_connection: Date
         
     
     
 })
 
 usersSchema.pre('find', function(){
-    this.populate('carts')
+    this.populate('cartId')
 })
 
 const usersModel = mongoose.model(usersCollection, usersSchema)

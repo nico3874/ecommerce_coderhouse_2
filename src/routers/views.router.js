@@ -3,8 +3,10 @@ import mongoose from "mongoose";
 import productsModel from "../dao/models/products.model.js";
 import cartsModel from "../dao/models/carts.model.js";
 import { passportCall } from "../utils.js";
-import UserDTO from "../dao/DTO/users.dto.js";
+
 import { roleAdmin, roleUser } from "./sessions.router.js";
+import usersModel from "../dao/models/users.model.js";
+import UserDTO from "../dao/DTO/users.dto.js";
 
 
 
@@ -25,7 +27,7 @@ router.get('/', async (req, res)=>{
 router.get('/products',passportCall('jwt'), async(req,res)=>{
     
     const userCart = req.user.user.cartId
-    const user = new UserDTO(req.user.user)
+    const user = req.user.user
     
     let page = +(req.query.page)
     if (!page) page = 1
@@ -70,11 +72,14 @@ router.get('/github/products', async(req,res)=>{
 })
 
 router.get('/admin', passportCall('jwt'), roleAdmin, async(req, res)=>{
-    res.render('products/adminProduct')
+    (req.user.user.role == 'admin')? res.render('products/adminProduct'): res.send('No tienes permiso para ingresar a esta sección')
+    
+    
 })
 
-router.get('/updateProduct', async(req, res)=>{
-    res.render('products/update')
+router.get('/updateProduct', passportCall('jwt'), roleAdmin, async(req, res)=>{
+    req.user.user.role == 'admin' ? res.render('products/update'): res.send('No tienes permiso para ingresar a esta sección')
+    
 })
 
 
@@ -87,8 +92,9 @@ router.post('/updateProduct', async(req, res)=>{
 
 })
 
-router.get('/deleteProduct', async(req, res)=>{
-    res.render('products/delete')
+router.get('/deleteProduct', passportCall('jwt'), roleAdmin, async(req, res)=>{
+    req.user.user.role == 'admin'? res.render('products/delete'): res.send('No tienes permiso para ingresar a esta sección')
+    
 })
 
 router.post('/deleteProduct', async(req, res)=>{
@@ -134,7 +140,7 @@ router.get('/chat',passportCall('jwt'),roleUser, (req, res)=>{
 //Ver carrito completo
 
 router.get('/cart/:cid',passportCall('jwt'), async(req, res)=>{
-    const cartParam = req.user.user.cartId
+    const cartParam = req.user.user.cartId[0]
     const cart = await cartsModel.find({_id:new mongoose.Types.ObjectId(cartParam)}).lean() //Utilizar lean() para que handlebars reciba un objeto tipo json
     res.render('cartsDetail', {productsCart:cart[0].products,quantity:cart[0].products.quantity, cart:cartParam })
 
@@ -144,6 +150,40 @@ router.get('/productCreate', (req, res)=>{
     res.render('products/create', {})
 })
 
+//Manejo de Usuarios desde el administrador
+
+router.get('/admin/getuser',passportCall('jwt'), async(req, res)=>{
+    
+    res.render('user/userDetail')
+})
+
+router.post('/userview', passportCall('jwt'), roleAdmin, async(req, res)=>{
+    const id = req.body.id
+    if (mongoose.Types.ObjectId.isValid(id)){
+            const user = await usersModel.findOne({_id:new mongoose.Types.ObjectId(id)}).lean().exec()
+            !user ? res.send('Usuario no existe'): res.render('user/userDetail', {user:new UserDTO(user), id:id})
+        }else{
+             res.send('El formato de iD inválido')
+        }
+    
+
+    
+})
+
+router.put('/changerole', passportCall('jwt'), roleAdmin, async(req, res)=>{
+    const user = await usersModel.findOne({_id:new mongoose.Types.ObjectId(req.body.id)})
+    user.role = req.body.role
+    user.save()
+    res.send('Formulario Procesado')
+    
+})
+
+router.delete('/deleteuser', passportCall('jwt'), roleAdmin, async(req, res)=>{
+     const user = await usersModel.findOne({_id: new mongoose.Types.ObjectId(req.body.id)})       
+     await usersModel.deleteOne(user)
+     await cartsModel.deleteOne({_id: new mongoose.Types.ObjectId(user.cartId[0])})
+     res.send('Formulario procesado')
+})
 
 
 export default router

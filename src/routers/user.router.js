@@ -3,8 +3,63 @@ import { passportCall } from "../utils.js";
 import usersModel from "../dao/models/users.model.js";
 import mongoose from "mongoose";
 import multer from "multer";
+import UserDTO from "../dao/DTO/users.dto.js";
+import { roleAdmin } from "./sessions.router.js";
+import cartsModel from "../dao/models/carts.model.js";
+import { transport } from "../utils.js";
+
 
 const router = Router()
+
+router.get('/', passportCall('jwt'), roleAdmin, async(req, res)=>{
+    const users = await usersModel.find()
+    const listUser = []
+    users.forEach(element=>{
+        const user = new UserDTO(element)
+        listUser.push(user)
+    })
+    res.send(listUser)
+    
+})
+
+router.delete('/', passportCall('jwt'), roleAdmin, async(req, res)=>{
+    const users = await usersModel.find()
+    const toDate = new Date()
+    let count = 0
+    users.forEach(async(element)=>{
+        if(element.last_connection){
+            if( (toDate.getTime()-element.last_connection.getTime()) > 172800000 && element.role != 'admin' ){
+                    try {
+                        count++
+                        await usersModel.deleteOne({_id:new mongoose.Types.ObjectId(element._id)})
+                        await cartsModel.deleteOne({_id:element.cartId})
+                        const result = await transport.sendMail({
+                            from:'nicodoffo2015@gmail.com',
+                            to: `${element.email}`,
+                            subject: 'Tu cuenta ha sido eliminada',
+                            html: 
+                            ` <div> <h3>
+                            Hola ${element.name}, debimos cancelar tu cuenta por falta de actividad. Te esperamos para que vulevas a registrarte.
+                            Saludos!
+                            </h3>
+                            </div>
+                            `   
+                })
+                
+                return res.send('Mensajes enviados.')
+                    } catch (error) {
+                        res.send('EL proceso se interrumpió'+error)
+                    }
+                    
+                
+            }
+            
+        }
+        
+        
+    })
+    if(count==0) res.send('No hay cuenta inactivas')
+})
 
 router.get('/change', passportCall('jwt'), async(req, res) =>{
 
@@ -47,7 +102,7 @@ const storage = multer.diskStorage({
                 folder = 'src/uploads/documents/'
         }
 
-        cb(null, folder )
+        cb(null, folder)
 
     },
     filename : function(req, file, cb){

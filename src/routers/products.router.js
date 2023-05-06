@@ -11,7 +11,7 @@ router.get('/',passportCall('jwt'), roleAdmin, getProducts)
 
 router.get('/:id',passportCall('jwt'), roleAdmin, getProductsById)
 
-router.post('/',passportCall('jwt'), roleAdmin,getImgProduct, addProducts)
+router.post('/',passportCall('jwt'), roleAdmin, getImgProduct, addProducts)
 
 router.put('/:id' ,passportCall('jwt'),roleAdmin, updateProducts)
 

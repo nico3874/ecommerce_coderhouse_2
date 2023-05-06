@@ -2,7 +2,7 @@ import dotenv from 'dotenv'
 import { Command } from 'commander'
 
 const program = new Command()
-program.option('--dao <dao>', 'origen de los datos', 'MEMORY')
+program.option('--dao <dao>', 'origen de los datos', 'MONGO')
 
 program.parse() 
 
@@ -11,7 +11,7 @@ const environment = program.opts().dao
 
 
 dotenv.config({
-    path: environment=="MONGO" ? "./.env.mongo" : './.env.memory'
+    path: environment=="MEMORY" ? "./.env.memory" : './.env.mongo'
 })
 
 

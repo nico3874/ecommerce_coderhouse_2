@@ -5,7 +5,7 @@ import cartsModel from "../dao/models/carts.model.js";
 import usersModel from "../dao/models/users.model.js";
 import { createHash } from "../utils.js";
 import { compareSync } from "bcrypt";
-import nodemailer from 'nodemailer'
+import { transport } from "../utils.js";
 
 
 
@@ -76,7 +76,7 @@ router.get('/login', (req, res)=>{
 
 router.post('/login', passport.authenticate('login', {failureRedirect:'/sessions/failedLogin'}),async (req, res)=>{
 const user = await usersModel.findOne({_id: new mongoose.Types.ObjectId(req.user._id)})
-user.last_connection = new Date().toLocaleDateString() + '  ' +new Date().toLocaleTimeString()
+user.last_connection = new Date()
 user.save()
 res.cookie('userToken', req.user.token).redirect('/products')
 
@@ -111,21 +111,6 @@ router.get('/logout', (req, res)=>{
 
 
 //Recuperar Password
-
-const transport = nodemailer.createTransport({
-    service:'gmail',
-    port: 587,
-    secure: false,
-    
-    auth: {
-        user: 'nicodoffo2015@gmail.com',
-        pass: 'ifozlvirqsicyuyh'
-    },
-    tls: {
-        rejectUnauthorized: false
-    }
-})
-
 
 
 router.get('/recoverPassForm', async(req, res)=>{

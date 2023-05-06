@@ -4,13 +4,12 @@ import bycrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import PRIVATE_KEY from './config/config.js'
 import winston from 'winston'
-
+import nodemailer from 'nodemailer'
 import TYPELOGGER from './config/config.js'
 
 
 import passport from 'passport'
-import { config } from 'dotenv'
-import { ALL } from 'dns'
+
 ///Esto es para las rutas relativas
 
 const __filename = fileURLToPath(import.meta.url)
@@ -139,4 +138,20 @@ export const addLogger = (req, res, next) => {
     
     next()
 }
+
+//Envío de mail con nodemailer
+
+export const transport = nodemailer.createTransport({
+    service:'gmail',
+    port: 587,
+    secure: false,
+    
+    auth: {
+        user: 'nicodoffo2015@gmail.com',
+        pass: 'ifozlvirqsicyuyh'
+    },
+    tls: {
+        rejectUnauthorized: false
+    }
+})
 

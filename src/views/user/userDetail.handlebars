@@ -1,0 +1,35 @@
+<form action="/userview" method="post">
+    <h2>Ingresa el ID del Usuario a Consultar</h2>
+    <div class="mb-3">
+      <label for="title" class="form-label">ID:</label>
+      <input type="text" class="form-control" id="id" name="id" value={{id}} >
+      
+      <button id="buttonProductUpdate">Consultar</button>
+    </div>
+</form>
+<form  id="form-update" action="">
+    <input type="hidden" name="id"  value={{id}} >
+    <div class="mb-3">
+      <label for="name" class="form-label">Nombre:</label>
+      <input type="text" class="form-control" id="name" name="name"  value={{this.user.name}} disabled>
+    </div>
+    <div class="mb-3">
+      <label for="lastName" class="form-label">Apellido:</label>
+      <input type="text" class="form-control" id="lastName" name="lastName" value={{this.user.lastName}} disabled >
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email:</label>
+      <input type="email" class="form-control" id="email" name="email" value={{this.user.email}} disabled>
+    </div>
+    <div class="mb-3">
+      <label for="role" class="form-label">Rol:</label>
+      <input type="text" class="form-control" id="role" name="role" value={{this.user.role}} >
+    </div>
+    
+    
+    <button type="submit" class="btn btn-primary" id="btnUpdateUser">Cambiar Rol</button>
+    <button type="submit" class="btn btn-danger" id="btnDeleteteUser">Eliminar</button>
+</form>    
+
+
+<script src="/js/userManager.js"></script>
