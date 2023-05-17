@@ -4,7 +4,7 @@
       <label for="title" class="form-label">ID:</label>
       <input type="text" class="form-control" id="id" name="id" value={{id}} >
       
-      <button id="buttonProductUpdate">Consultar</button>
+      <button class="btn btn-primary form-control" id="buttonProductUpdate">Consultar</button>
     </div>
 </form>
 <form  id="form-update" action="">
@@ -27,9 +27,15 @@
     </div>
     
     
-    <button type="submit" class="btn btn-primary" id="btnUpdateUser">Cambiar Rol</button>
-    <button type="submit" class="btn btn-danger" id="btnDeleteteUser">Eliminar</button>
-</form>    
+    <button type="submit" class="btn btn-primary form-control mb-2" id="btnUpdateUser">Cambiar Rol</button>
+    <button type="submit" class="btn btn-danger form-control mb-2" id="btnDeleteteUser">Eliminar usuario seleccionado</button>
+    
 
+</form>    
+  <button type="button" class="btn btn-dark form-control mb-2" id="btnDeleteteUsersAct">Eliminar por inactividad</button>
+
+  <form action="/api/user/">
+    <input type="submit" value="Consulta general de Usuarios" class="form-control bg-success text-white mb-2" >
+  </form>
 
 <script src="/js/userManager.js"></script>

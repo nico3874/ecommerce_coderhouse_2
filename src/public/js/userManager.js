@@ -4,6 +4,7 @@
 let btnDelete = document.getElementById('btnDeleteteUser')
 let btnUpdate = document.getElementById('btnUpdateUser')
 let form = document.getElementById('form-update')
+let btnDeleteteUsersAct = document.getElementById('btnDeleteteUsersAct')
 
 
 
@@ -67,6 +68,22 @@ fetch(`http://localhost:8080/deleteuser`, {
   
 });
 
+})
+
+btnDeleteteUsersAct.addEventListener('click', (event)=>{
+  fetch(`http://localhost:8080/api/user`, {
+  method: "DELETE",
+  
+  headers: {
+    "Content-Type": "application/json",
+    
+  }
+}).then(response=> {
+    return response.text()
+  
+}).then(data=>{
+  alert(data)
+})
 })
 
 

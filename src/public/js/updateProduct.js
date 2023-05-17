@@ -2,6 +2,7 @@
 
 
 
+
 let btnUpdate = document.getElementById('btnUpdateProduct')
 let form = document.getElementById('form-update')
 
@@ -38,11 +39,15 @@ btnUpdate.addEventListener('click', (event)=>{
       "Content-Type": "application/json",
       
     }
-  }).then(function(response) {
-    console.log("Formulario enviado con éxito");
-    return alert('El producto se actualizó correctamente!!')
+  }).then(respose=> {
+      return respose.text()
     
-  });
+  }).then(data=>{
+    alert(data)
+    location.reload()
+    
+    
+  })
 }
   
 })

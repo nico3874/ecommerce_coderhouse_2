@@ -11,14 +11,21 @@ import UserDTO from "../dao/DTO/users.dto.js";
 
 
 const router = Router()
-
-
+const ObjID = mongoose.Types.ObjectId
 
 
 router.get('/', async (req, res)=>{
-
+    
+    
     const products = await productsModel.find().lean().exec()
-    res.render('home', {products})
+    if (req.user){
+        const user = req.user.user
+        const dataSend = {products, user}
+        res.render('home', dataSend)
+    }else{
+        res.render('home', {products})
+    }
+    
     
 })
 
@@ -33,7 +40,7 @@ router.get('/products',passportCall('jwt'), async(req,res)=>{
     if (!page) page = 1
     
     
-    const products = await productsModel.paginate({}, {page:page, limit:3, lean:true})
+    const products = await productsModel.paginate({}, {page:page, limit:6, lean:true})
     products.docs.forEach(element => {
         element.cartId = userCart
     });
@@ -45,6 +52,10 @@ router.get('/products',passportCall('jwt'), async(req,res)=>{
     products.userName = user.name
     products.userId = user._id
     products.cartId = user.cartId
+    products.userType = user.role
+    if (user.role == 'admin') products.userRole = user.role
+    if (user.role == 'premium') products.userRole = user.role
+    
     
     res.render('products', products)
     
@@ -72,13 +83,13 @@ router.get('/github/products', async(req,res)=>{
 })
 
 router.get('/admin', passportCall('jwt'), roleAdmin, async(req, res)=>{
-    (req.user.user.role == 'admin')? res.render('products/adminProduct'): res.send('No tienes permiso para ingresar a esta sección')
+     res.render('products/adminProduct')
     
     
 })
 
 router.get('/updateProduct', passportCall('jwt'), roleAdmin, async(req, res)=>{
-    req.user.user.role == 'admin' ? res.render('products/update'): res.send('No tienes permiso para ingresar a esta sección')
+     res.render('products/update')
     
 })
 
@@ -86,6 +97,7 @@ router.get('/updateProduct', passportCall('jwt'), roleAdmin, async(req, res)=>{
 
 router.post('/updateProduct', async(req, res)=>{
     const pid = req.body.id
+    if (!ObjID.isValid(pid)) return res.send('Formato de ID inválido o el campo está vacío')
     
     const product = await productsModel.findOne({_id:new mongoose.Types.ObjectId(pid)}).lean().exec()
     res.render('products/update', {product:product})
@@ -93,13 +105,13 @@ router.post('/updateProduct', async(req, res)=>{
 })
 
 router.get('/deleteProduct', passportCall('jwt'), roleAdmin, async(req, res)=>{
-    req.user.user.role == 'admin'? res.render('products/delete'): res.send('No tienes permiso para ingresar a esta sección')
+    res.render('products/delete')
     
 })
 
 router.post('/deleteProduct', async(req, res)=>{
     const pid = req.body.id
-    
+    if (!ObjID.isValid(pid)) return res.send('Formato de ID inválido o el campo está vacío')
     const product = await productsModel.findOne({_id:new mongoose.Types.ObjectId(pid)}).lean().exec()
     res.render('products/delete', {product:product})
 
@@ -142,7 +154,14 @@ router.get('/chat',passportCall('jwt'),roleUser, (req, res)=>{
 router.get('/cart/:cid',passportCall('jwt'), async(req, res)=>{
     const cartParam = req.user.user.cartId[0]
     const cart = await cartsModel.find({_id:new mongoose.Types.ObjectId(cartParam)}).lean() //Utilizar lean() para que handlebars reciba un objeto tipo json
-    res.render('cartsDetail', {productsCart:cart[0].products,quantity:cart[0].products.quantity, cart:cartParam })
+    let context = true
+    let total = 0
+    cart[0].products.forEach(element => {
+        let suma = element.product.price*element.quantity
+        total = total+suma
+    });
+    if(cart[0].products.length==0) context = false
+    res.render('cartsDetail', {productsCart:cart[0].products,quantity:cart[0].products.quantity, cart:cartParam, context:context, total:total })
 
 })
 
@@ -154,7 +173,7 @@ router.get('/productCreate', (req, res)=>{
 
 router.get('/admin/getuser',passportCall('jwt'), async(req, res)=>{
     
-    res.render('user/userDetail')
+   req.user.user.role == 'admin' ? res.render('user/userDetail') : res.send('No tienes premiso para acceder a esta sección')
 })
 
 router.post('/userview', passportCall('jwt'), roleAdmin, async(req, res)=>{
@@ -163,7 +182,7 @@ router.post('/userview', passportCall('jwt'), roleAdmin, async(req, res)=>{
             const user = await usersModel.findOne({_id:new mongoose.Types.ObjectId(id)}).lean().exec()
             !user ? res.send('Usuario no existe'): res.render('user/userDetail', {user:new UserDTO(user), id:id})
         }else{
-             res.send('El formato de iD inválido')
+             res.send('El formato de ID es inválido')
         }
     
 

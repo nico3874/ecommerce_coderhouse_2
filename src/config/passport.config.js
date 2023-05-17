@@ -4,11 +4,12 @@ import usersModel from '../dao/models/users.model.js'
 import { isValidPassword, createHash, cookieExtractor } from '../utils.js'
 import GitHubStrategy from 'passport-github2'
 import jwt from 'passport-jwt'
-import  PRIVATE_KEY  from './config.js'
+import  {PRIVATE_KEY}  from './config.js'
 import { generateToken } from '../utils.js'
 import CustomError from '../customErrors/errors/custom_error.js'
 import { generateUserErrorInfo } from '../customErrors/errors/infoError.js'
 import { codeError } from '../customErrors/errors/codeErrors.js'
+
 
 // Registro y Login con estrategia local
 
@@ -25,40 +26,41 @@ passport.use('register', new LocalStrategy({
 },
 async(req, username, password, done)=>{
     
-    try {
-        const {name, lastName, email, age,cartId} = req.body
+        try {
+            const {name, lastName, email, age,cartId} = req.body
+                if (name && lastName && email && age){
+                    const user = await usersModel.findOne({email:username})
+                    if(user){
+                        req.logger.warning('Usuario ya existe')
+                        return done(null, false)}
         
-        if (name && lastName && email && age){
-            const user = await usersModel.findOne({email:username})
-            if(user){
-                req.logger.warning('Usuario ya existe')
-                return done(null, false)}
-
-            const newUser = {
-                name,
-                lastName,
-                email,
-                age,
-                password: createHash(password)
+                    const newUser = {
+                        name,
+                        lastName,
+                        email,
+                        age,
+                        password: createHash(password)
+                    }
+                    
+                    const result = await usersModel.create(newUser)
+                    return (done(null, result))
+                
+                
+                
             }
-            if(req.body.premium) newUser.role = 'premium'
-            const result = await usersModel.create(newUser)
-            return (done(null, result))
-        
-        }
-        
-    
-        error=   CustomError.createError ({
-            name: "User creation error",
-            cause: generateUserErrorInfo({name, lastName, email, age}),
-            message: "Error trying to create user",
-            code: codeError.INVALID_TYPES_ERROR
+            error=   CustomError.createError ({
+                name: "User creation error",
+                cause: generateUserErrorInfo({name, lastName, email, age}),
+                message: "Error trying to create user",
+                code: codeError.INVALID_TYPES_ERROR
+                
+            }) 
             
-        }) 
-        
-    } catch (error) {
-        return done(error)
-    }
+        } catch (error) {
+            return done(error)
+        }
+    
+   
 }))
 
     //Login Local
@@ -131,7 +133,7 @@ async(req, username, password, done)=>{
 
     passport.use('jwt', new JWTStrategy({
         jwtFromRequest: jwt.ExtractJwt.fromExtractors([cookieExtractor]),
-        secretOrKey: PRIVATE_KEY.PRIVATE_KEY
+        secretOrKey: PRIVATE_KEY
 
     }, async (jwt_payload, done)=>{
         try {

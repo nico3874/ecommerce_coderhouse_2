@@ -1,47 +1,76 @@
-<h1>Ecommerce - Productos Ordenados</h1>   <a href="/cart/{{cartId}}">Ver Carrito</a>
 
-<div>
-    <h2>Bienvenido al Ecommerce Amigo/a: <b>{{userName}}</b> | Identificación:  <b>{{userId}}</b></h2>
-</div>
+
+{{#if userRole }}
+    <a href="/admin" ><button class="btn btn-primary">Administrar</button></a>
+{{/if}}
+<div class="header">
+    <h2>Bienvenido/a, {{userName}}!</h2>
+    <div class="cliente-info">
+      <p>ID: {{userId}}</p> <p>Tipo de usuario: <strong>{{userType}}</strong> </p>
+      
+  </div>
+    <a href="/cart/{{cartId}}" class="btn btn-primary form-control">Ver Carrito</a><br><br>
+  </div>
+
+  
+
+
+
+
+{{!-- Nuevo Ecommerce --}}
 
 {{#if isValid}}
 
-
-{{#each docs}}
-    <div>
-        <h2>{{this.title}}</h2>
-        <ul>
-            <li>ID: {{this._id}}</li>
-            <li>Descrpción:{{this.description}}</li>
-            <li>Precio:{{this.price}}</li>
-            <li>Código:{{this.code}}</li>
-            <li>Stock:{{this.stock}}</li>
-        </ul>
-        <img src="{{this.thumbnail}}" alt="">
-    </div>
-    <div>
-        
-<form action="/products/{{this._id}}">
-    <input type="submit" value="Detalle del producto" />
-</form>
- <form  method="post" action="/api/carts/{{this.cartId}}/products/{{this._id}}" >
-    <input type="number" name="quantity" min="1" value="1">
-    <input type="text" id="_id" style="display:none;", name={{this._id}}>
-    <input type="submit" value="Agregar al carrito" />
-</form>
-        
+<div class="row">
+    {{#each docs}}
+    <div class="col-md-4">
+      <div class="card mb-3 h-100">
+        <img src="{{this.thumbnail}}" class="card-img-top" alt="Producto" style="object-fit: cover; height: 200px;">
+        <div class="card-body">
+          <h5 class="card-title">{{this.title}}</h5>
+          <p class="card-text">ID: {{this._id}}</p>
+          <p class="card-text">Precio: ${{this.price}}</p>
+          <p class="card-text">Stock: {{this.stock}}</p>
+          <p class="card-text">Código: {{this.code}}</p>
+          <div class="">
+            
+          </div>
+          {{!-- <button class="btn btn-primary agregar-carrito" data-id="{{this.id}}">Agregar al carrito</button> --}}
+            <div class="d-flex align-items-start input-group mb-3">
+                <form  method="post" action="/api/carts/{{this.cartId}}/products/{{this._id}}" >
+                    <label class="input-group-text" for="cantidad">Cantidad</label>
+                    <input type="number" class="form-control" id="cantidad" name="quantity" value="1" min="1">
+                    
+                    <input type="text" id="_id" style="display:none;", name={{this._id}}>
+                    <input type="submit" value="Agregar al carrito" class="btn btn-primary"/>
+                </form>
+            </div>
+          
+          <a href="/products/{{this._id}}" class="btn btn-secondary ver-detalle" data-id="{{this.id}}">Ver detalle</a>
+        </div>
+      </div>
     </div>
     {{/each}}
-     <div>
-        {{#if hasPrevPage}}
-        <a href="{{prevLink}}">Anterior</a>
-        {{/if}}
-        {{ page }}
-        {{#if hasNextPage}}
-        <a href="{{nextLink}}">Siguiente</a>
-        {{/if}}
-    </div>
+  </div>
 
-
+  <div class="pagination-container">
+    {{#if hasPrevPage}}
+      <a href="{{prevLink}}" class="page-link">Anterior</a>
+    {{/if}}
+    {{#each pageNumbers}}
+      {{#if this.isCurrentPage}}
+        <span class="page-link current-page">{{this.page}}</span>
+      {{else}}
+        <a href="{{this.link}}" class="page-link">{{this.page}}</a>
+      {{/if}}
+    {{/each}}
+    {{#if hasNextPage}}
+      <a href="{{nextLink}}" class="page-link">Siguiente</a>
+    {{/if}}
+  </div>
 
 {{/if}}
+
+
+
+

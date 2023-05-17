@@ -56,10 +56,10 @@ export const deleteAllCart = async(req, res)=>{
 
 export const purchaseCart = async(req,res)=>{
     try {
-        const cid = req.user.user.cartId
-    let amount = 0
-    const productList = []
-    const cart = await cartsService.purchaseCart(cid)
+        const cid = req.user.user.cartId[0]
+        let amount = 0
+        const productList = []
+        const cart = await cartsService.purchaseCart(cid)
     
     cart.products.forEach(async(element)=>{
         if(element.product.stock>= element.quantity){
@@ -96,4 +96,17 @@ export const purchaseCart = async(req,res)=>{
     
     
     
+}
+
+export const getTicketUser = async(req, res)=>{
+    const user = await usersModel.findOne({_id: new mongoose.Types.ObjectId(req.user.user._id)})
+    const tickets = await ticketModel.find().lean()
+    const userTickets = []
+    let context =true
+    
+    tickets.forEach(element => {
+        element.purchaser == user.email && userTickets.push(element)
+    });
+    if(userTickets.length ==0) context = false
+    res.render('userTicket', {userTickets:userTickets, context:context})
 }

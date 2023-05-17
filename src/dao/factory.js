@@ -1,6 +1,6 @@
-import config from "../config/config.js";
+/* import config from "../config/config.js"; */
 import mongoose from 'mongoose'
-import URI_MONGO from '../config/config.js'
+import { URI_MONGO, persistence } from '../config/config.js';
 import CustomError from "../customErrors/errors/custom_error.js";
 import { generateConectErrorInfo } from "../customErrors/errors/infoError.js";
 import { codeError } from "../customErrors/errors/codeErrors.js";
@@ -11,13 +11,13 @@ export let FactoryCart
 
 
 
-
-switch (config.persistence) {
+switch (persistence) {
     
     case 'MONGO':
+            
             mongoose.set('strictQuery', false)
             try {
-                await mongoose.connect(URI_MONGO.URI_MONGO, {
+                await mongoose.connect(URI_MONGO, {
                 dbName:'ecommerce',
                 useNewUrlParser:true,
                 useUnifiedTopology:true

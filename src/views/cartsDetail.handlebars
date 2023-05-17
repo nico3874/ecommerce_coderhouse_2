@@ -1,25 +1,49 @@
-<h1>Carrito n° {{cart}}</h1>
+<h1 id="idCart">Carrito n° {{cart}}</h1>
 
-{{#each productsCart}}
-    <div>
-        <h2>{{this.product.title}}</h2>
-        <h2>Cantidad {{this.quantity}}</h2>
-        <ul>
-            <li name="id">ID: {{this._id}}</li>
-            <li name="Descripcion">Descripción:{{this.product.description}}</li>
-            <li name="precio">Precio:{{this.product.price}}</li>
-            <li name="codigo">Código:{{this.product.code}}</li>
-            <li name="stock">Stock:{{this.product.stock}}</li>
-        </ul>
-        <img src="{{this.product.thumbnail}}" alt="">
-    </div>
+{{#if context}}
+      <table class="table" >
+        <thead>
+          <tr>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Stock</th>
+            <th>Código</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>ID</th>
+            <th>Cantidad</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each productsCart}}
+            <input type="hidden" value="{{this.product._id}}" id="idProduct">
+            <tr>
+              <td><img src="{{this.product.thumbnail}}" alt="Imagen del producto" width="50"></td>
+              <td><strong>{{this.product.title}}</strong></td>
+              <td name="stock">{{this.product.stock}}</td>
+              <td name="codigo">{{this.product.code}}</td>
+              <td name="Descripcion">{{this.product.description}}</td>
+              <td name="precio">{{this.product.price}}</td>
+              <td name="id" >{{this.product._id}}</td>
+              <td>{{this.quantity}}</td>
+              <td><button class="btn btn-danger btn-sm" onclick="deleteProduct('{{this.product._id}}')">Eliminar</button></td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+      <h2>Total de la compra: ${{total}}</h2>
+      <form action="/api/carts/{{cart}}/purchase" method="post">
+        <input class="btn btn-primary form-control" type="submit" value="Finalizar compra" />
+      </form>
+          <br>
+
+          <a href="/products"><button class="btn btn-primary form-control">Seguir comprando</button></a>
+          {{else}}
+          <h2>Carrito Vacío</h2>
+{{/if}}  
 
 
 
-{{/each}}
 
-<form action="/api/carts/{{cart}}/purchase" method="post">
-    <input type="submit" value="Finalizar compra" />
-</form>
-
-<a href="/products"><button>Seguir comprando</button></a>
+<script src="/js/deleteProdCart.js"></script>

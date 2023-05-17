@@ -2,7 +2,6 @@ let btnDelete = document.getElementById('btnProductDelete')
 let form = document.getElementById('form-delete')
 
 
-
 btnDelete.addEventListener('click', (event)=>{
     
     
@@ -17,16 +16,20 @@ btnDelete.addEventListener('click', (event)=>{
  
   fetch(`http://localhost:8080/api/products/${data.id}`, {
     method: "DELETE",
-    body: JSON.stringify(data),
+    
     headers: {
       "Content-Type": "application/json",
       
     }
-  }).then(function(response) {
-
-    console.log("Formulario enviado con éxito" + JSON.stringify(response));
-    alert('El producto se eliminó correctamente!!')
+  }).then(response=> {
     
+    return response.text()
+    
+    
+  }).then(data=>{
+    
+    alert(data)
+    location.reload()
   });
 
   

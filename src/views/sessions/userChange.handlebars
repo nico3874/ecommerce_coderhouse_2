@@ -1,8 +1,12 @@
 <div>
-    <h1>Presiona el botón para cambiar tu Rol</h1>
-
-        <form action="/api/user/premium/{{this.user._id}}" method="post">
-            <input class="btn form-control btn-primary" type="submit" value="Cambiar">
+    <h1 class="text-center">Presiona el botón para cambiar tu Rol</h1>
+        
+        
+            <input type="hidden" value="{{user}}" id="idUser">
+            <button id="btnChangeUser" class="btn form-control btn-primary" type="button">Cambiar</button>  
             
-        </form>    
+       
 </div>
+
+
+<script src="/js/changeUser.js"></script>

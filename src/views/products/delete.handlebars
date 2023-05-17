@@ -12,11 +12,11 @@
     <input type="hidden" name="id"  value={{this.product._id}}>
     <div class="mb-3">
       <label for="title" class="form-label">Title:</label>
-      <input type="text" class="form-control" id="title" name="title"  value={{this.product.title}} >
+      <input type="text" class="form-control" id="title" name="title"  value='{{this.product.title}}' >
     </div>
     <div class="mb-3">
       <label for="description" class="form-label">Description:</label>
-      <input type="text" class="form-control" id="description" name="description" value={{this.product.description}} >
+      <input type="text" class="form-control" id="description" name="description" value='{{this.product.description}}' >
     </div>
     <div class="mb-3">
       <label for="price" class="form-label">Price:</label>
@@ -39,7 +39,7 @@
       <input type="number" class="form-control" id="stock" name="stock" value={{this.product.stock}} >
     </div>
     
-    <button type="submit" class="btn btn-primary" id="btnProductDelete">Eliminar</button>
+    <button type="button" class="btn btn-primary" id="btnProductDelete">Eliminar</button>
 </form>
 <br>
 <a href="/admin"><button type="submit" class="btn btn-primary">Menú Admin</button> </a>

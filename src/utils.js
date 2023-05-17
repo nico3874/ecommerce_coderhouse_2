@@ -2,10 +2,10 @@ import {fileURLToPath } from 'url'
 import {dirname, format} from 'path'
 import bycrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
-import PRIVATE_KEY from './config/config.js'
+import {PASSEMAIL, PRIVATE_KEY, TYPELOGGER, USEREMAIL} from './config/config.js'
 import winston from 'winston'
 import nodemailer from 'nodemailer'
-import TYPELOGGER from './config/config.js'
+
 
 
 import passport from 'passport'
@@ -28,7 +28,7 @@ export const isValidPassword = (user, password)=>{
 }
 
 export const generateToken = (user)=>{
-   const token =  jwt.sign({user}, PRIVATE_KEY.PRIVATE_KEY, {expiresIn:'24h'})
+   const token =  jwt.sign({user}, PRIVATE_KEY, {expiresIn:'24h'})
    
    return token
 }
@@ -129,8 +129,8 @@ const loggerProd = winston.createLogger({
 
 
 export const addLogger = (req, res, next) => {
-    if (TYPELOGGER.TYPELOGGER == 'loggerProd') req.logger = loggerProd
-    if (TYPELOGGER.TYPELOGGER == 'loggerDev') req.logger = loggerDev
+    if (TYPELOGGER == 'loggerProd') req.logger = loggerProd
+    if (TYPELOGGER == 'loggerDev') req.logger = loggerDev
     
     
     
@@ -147,8 +147,8 @@ export const transport = nodemailer.createTransport({
     secure: false,
     
     auth: {
-        user: 'nicodoffo2015@gmail.com',
-        pass: 'ifozlvirqsicyuyh'
+        user: USEREMAIL,
+        pass: PASSEMAIL
     },
     tls: {
         rejectUnauthorized: false

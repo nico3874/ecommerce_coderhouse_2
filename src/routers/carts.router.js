@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { cartCreate, getCart, addProductCart, deleteProductCart, deleteAllCart, purchaseCart } from "../controllers/carts.controller.js";
+import { cartCreate, getCart, addProductCart, deleteProductCart, deleteAllCart, purchaseCart, getTicketUser } from "../controllers/carts.controller.js";
 import { passportCall } from "../utils.js";
 import { roleUser } from "./sessions.router.js";
 
@@ -12,4 +12,5 @@ router.post('/:cid/products/:pid',passportCall('jwt'),roleUser, addProductCart)
 router.delete('/:cid/products/:pid', passportCall('jwt'),roleUser, deleteProductCart)
 router.delete('/:cid',passportCall('jwt'), roleUser, deleteAllCart)
 router.post('/:cid/purchase',passportCall('jwt'),roleUser, purchaseCart)
+router.get('/ticketsUser/view', passportCall('jwt'), getTicketUser)
 export default router

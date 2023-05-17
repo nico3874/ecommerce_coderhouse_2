@@ -7,6 +7,7 @@ import CustomError from "../customErrors/errors/custom_error.js";
 import multer from "multer";
 import usersModel from "../dao/models/users.model.js";
 import mongoose from "mongoose";
+import { transport } from "../utils.js";
 
 
 const productsService = new FactoryProducts()
@@ -20,6 +21,7 @@ export const getProducts = async(req, res)=>{
 
 export const getProductsById = async(req, res)=>{
     const idQuery = req.params.id
+    
     const product = await productsService.getProductsById(idQuery)
     return res.status(200).send(product)
         
@@ -29,7 +31,7 @@ export const getProductsById = async(req, res)=>{
 
 const storage = multer.diskStorage({
     destination: function(req, file, cb){
-        cb(null, 'src/uploads/products/')
+        cb(null, 'src/public/uploads/products/')
     },
     filename : function(req, file, cb){
         cb(null, file.originalname)
@@ -46,7 +48,7 @@ export const addProducts = async(req, res, done)=>{
     
     const imgProduct = req.file
     const user = await usersModel.findOne({_id: new mongoose.Types.ObjectId(req.user.user._id)})
-    console.log(imgProduct);
+    
     try {
         
         const {title, description, price, code, stock, category} = req.body
@@ -58,7 +60,7 @@ export const addProducts = async(req, res, done)=>{
                 if(imgProduct){
                     const imgProductUp = {
                         name : product.title,
-                        reference: `${imgProduct.destination}${imgProduct.filename}`
+                        reference: `uploads/products/${imgProduct.filename}`
                     }
                 user.documents.push(imgProductUp)
                 }
@@ -95,7 +97,7 @@ export const updateProducts = async ( req, res, done)=>{
         const productUpdate = req.body
         const result = await productsService.updateProduct(idQuery, productUpdate)
         req.logger.info(result)
-        return res.send(result)
+        return res.send('Producto actualizado exitosamente!!')
     }
     error = CustomError.createError ({
         name: "Product update error",
@@ -116,15 +118,32 @@ export const updateProducts = async ( req, res, done)=>{
 export const deleteProduct = async (req, res)=>{
     const idQuery = req.params.id
     const product = await productsService.getProductsById(idQuery)
-    if (req.user.user.role == 'premium' && product.owner == req.user.user.email ||req.user.user.role == 'admin'){
-    const result = await productsService.deleteProduct(idQuery)
-    console.log('Producto eliminado!!');
+    if (req.user.user.role == 'premium' && product.owner == req.user.user.email){
+        const result = await productsService.deleteProduct(idQuery)
+        const sensEmail = await transport.sendMail({
+            from:'nicodoffo2015@gmail.com',
+            to: `${req.user.user.email}`,
+            subject: 'Producto eliminado',
+            html: 
+            ` <div> <h3>
+            Hola ${req.user.user.name}, el producto ${product.title} que habías creado, ha sido eliminado.
+            Saludos!
+            </h3>
+            </div>
+            `   
+    })
     req.logger.info(result)
-    return res.send(result)}
-    else{
-        console.log('No puedes elimimar un producto que no creaste sino eres administrador');
+    return res.send('El producto fue eliminado')
+    }
+    if (req.user.user.role == 'premium' && product.owner != req.user.user.email){
         res.send('No puedes elimimar un producto que no creaste sino eres administrador')
     }
+    
+     if (req.user.user.role=='admin') {
+        await productsService.deleteProduct(idQuery)
+        return res.send('El producto fue eliminado')
+     }
+    
 
 }
 

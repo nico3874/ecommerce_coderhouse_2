@@ -11,6 +11,7 @@ import { transport } from "../utils.js";
 
 
 
+
 const router = Router()
 
 //Middleware de autenticación
@@ -27,7 +28,12 @@ export function roleUser (req, res, next){
     
     if(req.user.user.role =='user' || req.user.user.role == 'premium') return next()
     
-    /* res.send('Su perfil no le permite acceder') */
+    
+}
+
+export function tokenActive  (req, res, next){
+    !req.cookies.userToken? next(): res.send('Ya existe una sesión, debes salir para poder registrar un nuevo usuario y/o realizar el login')
+   
 }
 
 export function auth(req, res, next){
@@ -47,13 +53,16 @@ router.get('/register', (req, res)=>{
 
 //Estrategia local con passport
 
-router.post('/create', passport.authenticate('register', {failureRedirect:'/sessions/failedRegister'}), async(req, res)=>{
-    const userCart = await cartsModel.create(req.body)
-    const user = await usersModel.findOne({_id: new mongoose.Types.ObjectId(req.user._id)})
-    user.cartId = userCart
+router.post('/create',tokenActive, passport.authenticate('register', {failureRedirect:'/sessions/failedRegister'}), async(req, res)=>{
     
-    user.save()
-    res.redirect('/sessions/login')
+        const userCart = await cartsModel.create(req.body)
+        const user = await usersModel.findOne({_id: new mongoose.Types.ObjectId(req.user._id)})
+        user.cartId = userCart
+        user.save()
+        res.redirect('/sessions/login')
+   
+
+    
 })
 
 //Respuesta de falla de registro
@@ -74,7 +83,7 @@ router.get('/login', (req, res)=>{
 
 //Login con passport y estrategia local
 
-router.post('/login', passport.authenticate('login', {failureRedirect:'/sessions/failedLogin'}),async (req, res)=>{
+router.post('/login',tokenActive, passport.authenticate('login', {failureRedirect:'/sessions/failedLogin'}),async (req, res)=>{
 const user = await usersModel.findOne({_id: new mongoose.Types.ObjectId(req.user._id)})
 user.last_connection = new Date()
 user.save()

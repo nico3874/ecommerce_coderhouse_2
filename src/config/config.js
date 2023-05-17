@@ -1,4 +1,4 @@
-import dotenv from 'dotenv'
+import dotenv, { config } from 'dotenv'
 import { Command } from 'commander'
 
 const program = new Command()
@@ -11,16 +11,16 @@ const environment = program.opts().dao
 
 
 dotenv.config({
-    path: environment=="MEMORY" ? "./.env.memory" : './.env.mongo'
+    path: environment=="MEMORY" ? "./memory.env" : './mongo.env'
 })
 
 
+export const URI_MONGO = process.env.URI_MONGO
+export const persistence = process.env.PERSISTENCE
+export const PRIVATE_KEY = process.env.PRIVATE_KEY
+export const TYPELOGGER = process.env.TYPELOGGER
+export const USEREMAIL = process.env.USEREMAIL
+export const PASSEMAIL = process.env.PASSEMAIL
 
-export default{
-    URI_MONGO : process.env.URI_MONGO,
-    persistence : process.env.PERSISTENCE,
-    PRIVATE_KEY : process.env.PRIVATE_KEY,
-    TYPELOGGER : process.env.TYPELOGGER
-}
-
+export default config
 

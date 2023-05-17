@@ -17,7 +17,7 @@ import session from 'express-session'
 import initPass from './config/passport.config.js'
 import passport from 'passport'
 import cookieParser from 'cookie-parser'
-import URI_MONGO from './config/config.js'
+import {URI_MONGO} from './config/config.js'
 import chatModel from './dao/models/chat.model.js'
 import errorHandler from './middlewares/errors/middlewareError.js'
 import { addLogger } from './utils.js'
@@ -39,7 +39,7 @@ app.use(express.static(__dirname + '/public'))
 
 app.use(session({
     store:MongoStore.create({
-        mongoUrl: URI_MONGO.URI_MONGO,
+        mongoUrl: URI_MONGO,
         dbName: 'ecommerceSessions',
         mongoOptions:{
             useNewUrlParser:true,
@@ -80,14 +80,18 @@ app.use('/apidocs', swaggerUiExpress.serve, swaggerUiExpress.setup(specs))
 
 
 
-
+app.use((req, res, next)=> {
+    res.locals.userLoger = false
+    if (req.cookies.userToken) res.locals.userLoger = true
+    next();
+  });
 
 app.engine('handlebars', handlebars.engine())
 app.set('views', __dirname + '/views')
 app.set('view engine', 'handlebars')
 
 app.use(express.static(__dirname + '/public'))
-
+//Middleware de navbar
 
 
 app.use('/api/products', productsRouter)
@@ -105,7 +109,7 @@ const httpServer = new serverHtttp(app)
 const io = new Server(httpServer)
 
 
-/* app.listen(8080, ()=>console.log('Listen server...')) */
+
 const server = httpServer.listen(8080, ()=>{console.log("Running server...")})
 server.on('error', (error)=>{
     console.log(error)
