@@ -40,36 +40,7 @@ export default class Cart{
         cart.save()
         return cart
         
-        /* try {
-        const newCartProduct = []
-
-        const cart = await cartsModel.findById(cid)
         
-        let countProduct = 0
-    
-        if(cart.products.length==0){
-            newCartProduct.push({product:pid, quantity:1});
-            countProduct++
-        }
-
-        if(cart.products.length>0){
-            cart.products.forEach(element => {
-                element.product==pid && (element.quantity++, countProduct++);
-                newCartProduct.push(element)
-
-            });
-        }
-
-        countProduct == 0 && newCartProduct.push({product:pid, quantity:1})
-
-       
-        
-        await cartsModel.updateOne({_id:new mongoose.Types.ObjectId(cid)}, {$set:{products: newCartProduct}})
-        return {status:'Success',message:'Carrito actualizado'}
-
-        } catch (error) {
-            
-        } */
     }
 
     deleteProductCart = async(cid, pid)=>{

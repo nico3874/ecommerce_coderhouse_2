@@ -1,6 +1,4 @@
 import express from 'express'
-import mongoose from 'mongoose'
-
 import productsRouter from './routers/products.router.js'
 import cartsRouter from   './routers/carts.router.js'
 import viewsRouter from './routers/views.router.js'
@@ -17,7 +15,7 @@ import session from 'express-session'
 import initPass from './config/passport.config.js'
 import passport from 'passport'
 import cookieParser from 'cookie-parser'
-import {URI_MONGO} from './config/config.js'
+import {URI_MONGO, PORT} from './config/config.js'
 import chatModel from './dao/models/chat.model.js'
 import errorHandler from './middlewares/errors/middlewareError.js'
 import { addLogger } from './utils.js'
@@ -110,7 +108,7 @@ const io = new Server(httpServer)
 
 
 
-const server = httpServer.listen(8080, ()=>{console.log("Running server...")})
+const server = httpServer.listen(PORT, ()=>{console.log("Running server...")})
 server.on('error', (error)=>{
     console.log(error)
 })

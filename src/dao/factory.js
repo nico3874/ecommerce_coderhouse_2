@@ -1,4 +1,4 @@
-/* import config from "../config/config.js"; */
+
 import mongoose from 'mongoose'
 import { URI_MONGO, persistence } from '../config/config.js';
 import CustomError from "../customErrors/errors/custom_error.js";

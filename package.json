@@ -5,7 +5,10 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "mocha test/Products.test.js"
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
+    "test": "mocha test/supertest.test.js"
+
   },
   "keywords": [],
   "author": "",

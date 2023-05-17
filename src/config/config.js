@@ -21,6 +21,7 @@ export const PRIVATE_KEY = process.env.PRIVATE_KEY
 export const TYPELOGGER = process.env.TYPELOGGER
 export const USEREMAIL = process.env.USEREMAIL
 export const PASSEMAIL = process.env.PASSEMAIL
+export const PORT = process.env.PORT
 
 export default config
 
