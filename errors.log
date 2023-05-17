@@ -9934,3 +9934,12 @@ info: GET en /js/deleteProdCart.js - 15:40:53
 info: GET en /products - 15:41:00
 info: GET en /sessions/logout - 15:41:04
 info: GET en /sessions/login - 15:41:05
+info: GET en / - 20:16:13
+info: GET en / - 20:16:16
+info: GET en /sessions/login - 20:16:19
+info: POST en /sessions/login - 20:16:20
+info: GET en /products - 20:16:20
+info: GET en /products - 20:16:22
+info: GET en /sessions/logout - 20:16:24
+info: GET en /sessions/login - 20:16:24
+info: GET en / - 20:16:26
