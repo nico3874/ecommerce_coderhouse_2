@@ -4,7 +4,7 @@ const user = document.getElementById('idUser')
 
 btnChange.addEventListener('click', (event)=>{
     
-    fetch(`http://localhost:8080/api/user/premium/${user.value}`, {
+    fetch(`https://ecommercecoderhouse2-production.up.railway.app/api/user/premium/${user.value}`, {
        method:"POST",
        headers: {
         "Content-Type": "application/json",

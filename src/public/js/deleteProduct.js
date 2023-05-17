@@ -14,7 +14,7 @@ btnDelete.addEventListener('click', (event)=>{
   };
     
  
-  fetch(`http://localhost:8080/api/products/${data.id}`, {
+  fetch(`https://ecommercecoderhouse2-production.up.railway.app/api/products/${data.id}`, {
     method: "DELETE",
     
     headers: {

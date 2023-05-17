@@ -136,7 +136,7 @@ router.post('/emailSend', async(req, res)=>{
         to: `${user}`,
         subject: 'Reestablece tu contraseña',
         html: 
-           ` <div> <form action="http://localhost:8080/sessions/emailRecover" method="post">
+           ` <div> <form action="https://ecommercecoderhouse2-production.up.railway.app/sessions/emailRecover" method="post">
            <input type="hidden" value=${user} name="user">
            <input type="hidden" value=${time} name="time">
            <input type="submit" value="Reestablecer">

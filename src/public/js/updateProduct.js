@@ -32,7 +32,7 @@ btnUpdate.addEventListener('click', (event)=>{
   
 
   if(data.title!=='' && data.description!=='' && data.price!=='' && data.code!=='' && data.category !== '' && data.stock !== ''){
-  fetch(`http://localhost:8080/api/products/${data.id}`, {
+  fetch(`https://ecommercecoderhouse2-production.up.railway.app/api/products/${data.id}`, {
     method: "PUT",
     body: JSON.stringify(data),
     headers: {

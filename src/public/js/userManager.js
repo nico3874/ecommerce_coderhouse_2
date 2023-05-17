@@ -71,7 +71,7 @@ fetch(`http://localhost:8080/deleteuser`, {
 })
 
 btnDeleteteUsersAct.addEventListener('click', (event)=>{
-  fetch(`http://localhost:8080/api/user`, {
+  fetch(`https://ecommercecoderhouse2-production.up.railway.app/api/user`, {
   method: "DELETE",
   
   headers: {
